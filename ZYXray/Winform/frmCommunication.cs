@@ -37,7 +37,8 @@ namespace ZYXray.Winform
 
         DictionaryRefDAL dictionaryRefDAL = new DictionaryRefDAL();
 
-        CommunicationDAL commfDAL = new CommunicationDAL();
+        CommunicationDAL commfDAL = new CommunicationDAL(); 
+
         private void frmCommunication_Load(object sender, EventArgs e)
         {
 
@@ -61,6 +62,7 @@ namespace ZYXray.Winform
                 comm = new Communication();
             }
             comm.Factory = "ATL";
+
             comm.Code = "socket";
             comm.Name = "上料扫码";
             comm.ComPort = "";
