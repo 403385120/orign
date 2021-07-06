@@ -1,0 +1,1027 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--  Locale定义  -->
+    <sys:String x:Key="LL_LangTag">zh-CN</sys:String>
+
+    <!--  全局定义  -->
+    <sys:String x:Key="LL_AppName">X-Ray i-factory管理系统</sys:String>
+
+    <sys:String x:Key="LL_OK">确定</sys:String>
+    <sys:String x:Key="LL_Cancel">取消</sys:String>
+    <sys:String x:Key="LL_Quit">退出</sys:String>
+    <sys:String x:Key="LL_Back">返回</sys:String>
+
+    <sys:String x:Key="LL_Open">打开</sys:String>
+    <sys:String x:Key="LL_Close">关闭</sys:String>
+    <sys:String x:Key="LL_ComTest">测试</sys:String>
+
+    <sys:String x:Key="LL_Save">保存</sys:String>
+    <sys:String x:Key="LL_Discard">丢弃</sys:String>
+
+    <sys:String x:Key="LL_Add">添加</sys:String>
+    <sys:String x:Key="LL_Modify">修改</sys:String>
+    <sys:String x:Key="LL_Delete">删除</sys:String>
+    <sys:String x:Key="LL_Refresh">刷新</sys:String>
+    <sys:String x:Key="LL_Query">查询</sys:String>
+    <sys:String x:Key="LL_Export">导出</sys:String>
+    <sys:String x:Key="LL_QueryCond">查询条件</sys:String>
+
+    <sys:String x:Key="LL_Yes">是</sys:String>
+    <sys:String x:Key="LL_No">否</sys:String>
+
+    <sys:String x:Key="LL_On">打开</sys:String>
+    <sys:String x:Key="LL_Off">关闭</sys:String>
+    <sys:String x:Key="LL_Minimalize">最小化</sys:String>
+
+    <sys:String x:Key="LL_DialogInformation">提示</sys:String>
+    <sys:String x:Key="LL_DialogWarn">警告</sys:String>
+    <sys:String x:Key="LL_DialogError">错误</sys:String>
+    <sys:String x:Key="LL_DialogConfirm">确认</sys:String>
+    <sys:String x:Key="LL_DialogWait">请稍候...</sys:String>
+
+    <!--  设备调试窗口  -->
+    <sys:String x:Key="LL_DebugPageTitle">PLC调试</sys:String>
+    <sys:String x:Key="LL_Connect">连接</sys:String>
+    <sys:String x:Key="LL_Execute">执行</sys:String>
+    <sys:String x:Key="LL_RemoteIP">IP地址</sys:String>
+    <sys:String x:Key="LL_LocalAddr">本地地址</sys:String>
+    <sys:String x:Key="LL_RemoteAddr">远程地址</sys:String>
+    <sys:String x:Key="LL_RemotePort">端口号</sys:String>
+    <sys:String x:Key="LL_PLCProtocolType">协议类型</sys:String>
+    <sys:String x:Key="LL_ExecuteTips">危险操作！！！在生产环境中执行命令将可能导致设备损坏或人员伤害， 是否确认操作？</sys:String>
+    <!--  枚举的命名约定为 LL_+枚举名  -->
+    <x:Array x:Key="LL_ERunningStatus" Type="{x:Type sys:String}">
+        <sys:String>未定义</sys:String>
+        <sys:String>正在运行</sys:String>
+        <sys:String>运行时待料</sys:String>
+        <sys:String>报警中</sys:String>
+        <sys:String>停机</sys:String>
+        <sys:String>暂停</sys:String>
+    </x:Array>
+    <sys:String x:Key="LL_ConnectStatus">连接状态</sys:String>
+    <sys:String x:Key="LL_PollingStatus">轮询状态</sys:String>
+    <sys:String x:Key="LL_RunningStatus">运行状态</sys:String>
+    <sys:String x:Key="LL_HeadShotSignal1">头部拍照触发1</sys:String>
+    <sys:String x:Key="LL_HeadShotSignal2">头部拍照触发2</sys:String>
+    <sys:String x:Key="LL_TailShotTrigger1">尾部拍照触发1</sys:String>
+    <sys:String x:Key="LL_TailShotTrigger2">尾部拍照触发2</sys:String>
+    <sys:String x:Key="LL_ScanCodeTrigger">扫码触发</sys:String>
+    <sys:String x:Key="LL_AllowsSendPhotoResults">允许发送拍照结果</sys:String>
+    <sys:String x:Key="LL_SystemResetSignal">系统复位信号</sys:String>
+    <sys:String x:Key="LL_CycleMoveSignal">转盘转动状态</sys:String>
+    <sys:String x:Key="LL_SeatSyncFinish">队列同步完成</sys:String>
+    <sys:String x:Key="LL_PLCConnected">已连接</sys:String>
+    <sys:String x:Key="LL_PLCDisconnected">未连接</sys:String>
+
+    <sys:String x:Key="LL_HeartbeatSingal">心跳包</sys:String>
+    <sys:String x:Key="LL_PcReady">PC Ready</sys:String>
+    <sys:String x:Key="LL_HeadShotFinish1">头部拍照1</sys:String>
+    <sys:String x:Key="LL_HeadShotFinish2">头部拍照2</sys:String>
+    <sys:String x:Key="LL_TailShotFinish1">尾部拍照1</sys:String>
+    <sys:String x:Key="LL_TailShotFinish2">尾部拍照2</sys:String>
+    <sys:String x:Key="LL_OKTestResult">结果OK</sys:String>
+    <sys:String x:Key="LL_NGTestResult">结果NG</sys:String>
+    <sys:String x:Key="LL_OKScanCode">扫码OK</sys:String>
+    <sys:String x:Key="LL_NGScanCode">扫码NG</sys:String>
+    <sys:String x:Key="LL_ShotOnCorner13">一三角拍照</sys:String>
+    <sys:String x:Key="LL_ShotOnCorner24">二四角拍照</sys:String>
+
+    <sys:String x:Key="LL_MotionControlPageTitle">运动控制</sys:String>
+    <sys:String x:Key="LL_RunSpeed">运行速度</sys:String>
+    <sys:String x:Key="LL_NGBoxNum">NG满盒数</sys:String>
+    <sys:String x:Key="LL_RunContinuous">连续运动</sys:String>
+    <sys:String x:Key="LL_BlockingTime">堵料时间</sys:String>
+    <sys:String x:Key="LL_Stop">停止</sys:String>
+    <sys:String x:Key="LL_InspectABCorner">检测AB角</sys:String>
+    <sys:String x:Key="LL_InspectCDCorner">检测CD角</sys:String>
+    <sys:String x:Key="LL_InspectABCDCorner">检测ABCD角</sys:String>
+    <sys:String x:Key="LL_GotoFeedingPosition">到取料点</sys:String>
+    <sys:String x:Key="LL_GotoDischargePosition">到放料点</sys:String>
+    <sys:String x:Key="LL_GotoArmRetractPosition">到收臂点</sys:String>
+    <sys:String x:Key="LL_GotoStandbyPosition">到待命点</sys:String>
+    <sys:String x:Key="LL_OpenVacuum">打开真空</sys:String>
+    <sys:String x:Key="LL_CloseVacuum">关闭真空</sys:String>
+    <sys:String x:Key="LL_ExtendedCylinder">伸出气缸</sys:String>
+    <sys:String x:Key="LL_CylinderAbnormal">气缸异常</sys:String>
+    <sys:String x:Key="LL_RetractCylinder">收回气缸</sys:String>
+    <sys:String x:Key="LL_TubeEnable">光管使能</sys:String>
+    <sys:String x:Key="LL_CaptureImageDelay">采图延时</sys:String>
+    <sys:String x:Key="LL_StepLength">步长</sys:String>
+    <sys:String x:Key="LL_StepIn">步进</sys:String>
+    <sys:String x:Key="LL_OnlineEnable">联机使能</sys:String>
+    <sys:String x:Key="LL_EndSensorEnable">末端感应器使能</sys:String>
+    <sys:String x:Key="LL_GotoDischargePosition1">到放料点1</sys:String>
+    <sys:String x:Key="LL_GotoDischargePosition2">到放料点2</sys:String>
+    <sys:String x:Key="LL_DeclineResidenceTime">下降保持时间</sys:String>
+    <sys:String x:Key="LL_StartTest">开始</sys:String>
+    <sys:String x:Key="LL_Reset">复位</sys:String>
+
+    <sys:String x:Key="LL_SignalMonitorPageTitle">信号监视</sys:String>
+    <sys:String x:Key="LL_IsRayTubeError">光管异常</sys:String>
+    <sys:String x:Key="LL_IsRayTubeLock">光管连锁</sys:String>
+    <sys:String x:Key="LL_IsInBeltAlarm">入料皮带伺服报警</sys:String>
+    <sys:String x:Key="LL_IsOutBeltAlarm">出料皮带伺服报警</sys:String>
+    <sys:String x:Key="LL_IsX1ServoAlarm">机械手1X轴伺服报警</sys:String>
+    <sys:String x:Key="LL_IsY1ServoAlarm">机械手1Y轴伺服报警</sys:String>
+    <sys:String x:Key="LL_IsX2ServoAlarm">机械手2X轴伺服报警</sys:String>
+    <sys:String x:Key="LL_IsY2ServoAlarm">机械手2Y轴伺服报警</sys:String>
+    <sys:String x:Key="LL_IsNGServoAlarm">分拣机械手伺服报警</sys:String>
+    <sys:String x:Key="LL_IsZ0CylinderPush">入料定位气缸伸出</sys:String>
+    <sys:String x:Key="LL_IsZ0CylinderBack">入料定位气缸收回</sys:String>
+    <sys:String x:Key="LL_IsZ1CylinderPush">机械手1气缸伸出</sys:String>
+    <sys:String x:Key="LL_IsZ1CylinderBack">机械手1气缸收回</sys:String>
+    <sys:String x:Key="LL_IsZ2CylinderPush">机械手2气缸伸出</sys:String>
+    <sys:String x:Key="LL_IsZ2CylinderBack">机械手2气缸收回</sys:String>
+    <sys:String x:Key="LL_IsZ3CylinderPush">分拣机械手气缸伸出</sys:String>
+    <sys:String x:Key="LL_IsZ3CylinderBack">分拣机械手气缸收回</sys:String>
+    <sys:String x:Key="LL_IsZ4CylinderPush">NG料盒气缸伸出</sys:String>
+    <sys:String x:Key="LL_IsZ4CylinderBack">NG料盒气缸收回</sys:String>
+    <sys:String x:Key="LL_IsZ1VacuumOn">机械手1真空</sys:String>
+    <sys:String x:Key="LL_IsZ2VacuumOn">机械手2真空</sys:String>
+    <sys:String x:Key="LL_IsZ3VacuumOn">分拣机械手真空</sys:String>
+    <sys:String x:Key="LL_IsIn1TriggerOn">来料感应器</sys:String>
+    <sys:String x:Key="LL_IsIn2TriggerOn">堵料感应器</sys:String>
+    <sys:String x:Key="LL_IsIn3TriggerOn">入料感应器</sys:String>
+    <sys:String x:Key="LL_IsOut1TriggerOn">收料感应器</sys:String>
+    <sys:String x:Key="LL_IsX1Home">机械手1X轴原点</sys:String>
+    <sys:String x:Key="LL_IsY1Home">机械手1Y轴原点</sys:String>
+    <sys:String x:Key="LL_IsX2Home">机械手2X轴原点</sys:String>
+    <sys:String x:Key="LL_IsY2Home">机械手2Y轴原点</sys:String>
+
+    <sys:String x:Key="LL_MesClientPageTitle">MES客户端</sys:String>
+
+    <!--  登陆窗口  -->
+    <sys:String x:Key="LL_Welcome">欢迎使用！</sys:String>
+    <sys:String x:Key="LL_ExitConfirmMsg">是否退出系统?</sys:String>
+    <sys:String x:Key="LL_SwitchUserMsg">是否退出当前账号?</sys:String>
+    <sys:String x:Key="LL_Switch">切换</sys:String>
+    <sys:String x:Key="LL_AuthTitle">请登陆授权</sys:String>
+    <sys:String x:Key="LL_Auth">授权</sys:String>
+    <sys:String x:Key="LL_ShowWaitCheck">不显示待判定图</sys:String>
+    <sys:String x:Key="LL_AuthFailed">授权失败，用户无权限！</sys:String>
+    <sys:String x:Key="LL_AuthFailedSTF">IFactory用户校验失败！</sys:String>
+    <sys:String x:Key="LL_InitMessage">正在初始化</sys:String>
+    <sys:String x:Key="LL_InitFailed">系统初始化失败！</sys:String>
+    <sys:String x:Key="LL_InitCameraFiled">打开相机失败！序号</sys:String>
+    <sys:String x:Key="LL_InitFailedMsg">请修复所有问题后重启程序，否则系统将不能正常使用或者运行异常！</sys:String>
+    <x:Array x:Key="LL_EModuleNames" Type="{x:Type sys:String}">
+        <sys:String>用户管理</sys:String>
+        <sys:String>算法模块</sys:String>
+        <sys:String>PLC</sys:String>
+        <sys:String>自动检测模块</sys:String>
+        <sys:String>STF记录管理模块</sys:String>
+        <sys:String>易损件管理模块</sys:String>
+        <sys:String>扫码器</sys:String>
+        <sys:String>光管</sys:String>
+        <sys:String>相机</sys:String>
+        <sys:String>STF模块</sys:String>
+        <sys:String>检测结果记录模块</sys:String>
+        <sys:String>报警记录模块</sys:String>
+    </x:Array>
+
+    <!--  模块错误解决方案 与上面数组对应  -->
+    <x:Array x:Key="LL_EModuleFixSolutions" Type="{x:Type sys:String}">
+        <sys:String>请检查数据库连接参数及数据库表结构是否正确！</sys:String>
+        <sys:String>请检查算法模块是否在程序目录！</sys:String>
+        <sys:String>请检测PLC IP及端口配置是否正确！</sys:String>
+        <sys:String>自动检测模块</sys:String>
+        <sys:String>请检查数据库连接参数及数据库表结构是否正确！</sys:String>
+        <sys:String>请检查数据库连接参数及数据库表结构是否正确！</sys:String>
+        <sys:String>请检查扫码器端口及连接参数是否正确！</sys:String>
+        <sys:String>请检查光管端口及连接参数是否正确！</sys:String>
+        <sys:String>请检查相机序列号是否正确，请重启电脑或打开相机厂家软件检查！</sys:String>
+        <sys:String>请检查STF服务器连接参数！</sys:String>
+        <sys:String>请检查数据库连接参数及数据库表结构是否正确！</sys:String>
+        <sys:String>请检查数据库连接参数及数据库表结构是否正确！</sys:String>
+    </x:Array>
+
+    <!--  主界面  -->
+    <sys:String x:Key="LL_Hello">您好</sys:String>
+    <sys:String x:Key="LL_CurrentTime">当前时间</sys:String>
+
+    <sys:String x:Key="LL_MenuStatus">设备状态</sys:String>
+    <sys:String x:Key="LL_MenuStatusOverView">设备概况</sys:String>
+    <sys:String x:Key="LL_MenuStatusMonitor">状态监视</sys:String>
+    <sys:String x:Key="LL_StopReasonView">停机原因</sys:String>
+    <sys:String x:Key="LL_MenuStatusData">生产数据</sys:String>
+    <sys:String x:Key="LL_MenuRealTimeData">实时数据</sys:String>
+    <sys:String x:Key="LL_MenuHistoryData">查询报表</sys:String>
+    <sys:String x:Key="LL_DataOutError">查询数据量过大，请缩短查询时间区间！</sys:String>
+    <sys:String x:Key="LL_MenuStatusDebug">设备调试</sys:String>
+    <sys:String x:Key="LL_MenuDataAnalysis">产量统计</sys:String>
+    <sys:String x:Key="LL_MenuQATool">QA工具</sys:String>
+
+    <sys:String x:Key="LL_MenuAlarm">报警监控</sys:String>
+    <sys:String x:Key="LL_MenuAlarmRealtime">实时报警</sys:String>
+    <sys:String x:Key="LL_MenuAlarmPending">待处理报警数</sys:String>
+    <sys:String x:Key="LL_MenuAlarmHistory">历史报警</sys:String>
+    <sys:String x:Key="LL_MenuAlarmSetting">报警设置</sys:String>
+
+    <sys:String x:Key="LL_MenuUser">用户管理</sys:String>
+    <sys:String x:Key="LL_MenuUserInfo">个人信息</sys:String>
+    <sys:String x:Key="LL_MenuUserManage">用户管理</sys:String>
+    <sys:String x:Key="LL_MenuUserGroup">角色管理</sys:String>
+    <sys:String x:Key="LL_MenuFQA_LocalManage">本地用户管理</sys:String>
+
+    <sys:String x:Key="LL_versioncontrol">版本控制</sys:String>
+
+    <sys:String x:Key="LL_MenuSettings">系统设置</sys:String>
+    <sys:String x:Key="LL_MenuSettingsCamera">相机设置</sys:String>
+    <sys:String x:Key="LL_MenuSettingsXRay">XRay设置</sys:String>
+    <sys:String x:Key="LL_MenuSettingsImageSaing">图片保存设置</sys:String>
+    <sys:String x:Key="LL_MenuSettingsPLC">PLC设置</sys:String>
+    <sys:String x:Key="LL_MenuSettingsCheckParams">检测参数</sys:String>
+    <sys:String x:Key="LL_MenuSettingsSTF">STF设置</sys:String>
+    <sys:String x:Key="LL_MenuTestSetting">点检设置</sys:String>
+    <sys:String x:Key="LL_MenuReportSetting">报表设置</sys:String>
+    <sys:String x:Key="LL_MenuBatteryRecordSetting">检测数据</sys:String>
+
+    <sys:String x:Key="LL_MenuData">数据仓库</sys:String>
+    <sys:String x:Key="LL_MenuDataCapacity">生产产能</sys:String>
+    <sys:String x:Key="LL_MenuDataRate">生产优率</sys:String>
+    <sys:String x:Key="LL_MenuDataRealTime">实时生产曲线</sys:String>
+
+    <sys:String x:Key="LL_MenuRemote">远程控制</sys:String>
+    <sys:String x:Key="LL_MenuRemoteUpload">上传记录</sys:String>
+    <sys:String x:Key="LL_MenuRemotePush">推送记录</sys:String>
+    <sys:String x:Key="LL_MenuQueryRecord">查询记录</sys:String>
+    <sys:String x:Key="LL_MenuOverline">跨线投料计划</sys:String>
+
+    <sys:String x:Key="LL_MenuMaint">维护保养</sys:String>
+    <sys:String x:Key="LL_MenuMaintStatistics">易损件统计</sys:String>
+
+    <sys:String x:Key="LL_MenuLog">日志查看</sys:String>
+    <sys:String x:Key="LL_MenuLogViewer">系统日志</sys:String>
+
+    <sys:String x:Key="LL_DeviceDebug">设备调试</sys:String>
+    <sys:String x:Key="LL_PLCDebug">PLC调试</sys:String>
+    <sys:String x:Key="LL_TimeMeasurements">效率分析</sys:String>
+    <sys:String x:Key="LL_MenuInspectTest">算法测试</sys:String>
+    <sys:String x:Key="LL_MotionControl">运动控制</sys:String>
+    <sys:String x:Key="LL_SignalMonitor">信号监视</sys:String>
+    <sys:String x:Key="LL_MesClient">MES客户端</sys:String>
+    <sys:String x:Key="LL_MesInput">MES Input设置</sys:String>
+    
+    <sys:String x:Key="LL_MenuWorkCalendery">工作日历</sys:String>
+    <sys:String x:Key="LL_MenuWorkCalenderYear">年度日历</sys:String>
+
+    <sys:String x:Key="LL_MenuWorkVersion">版本控制</sys:String>
+    <sys:String x:Key="LL_MenuWorkVersionLists">模块版本号</sys:String>
+
+    <!--  Log Viewer  -->
+    <sys:String x:Key="LL_LogViewer">日志查看器</sys:String>
+    <sys:String x:Key="LL_Clear">清理</sys:String>
+    <sys:String x:Key="LL_LogLevelsT">日志等级</sys:String>
+    <x:Array x:Key="LL_LogLevels" Type="{x:Type sys:String}">
+        <sys:String>调试</sys:String>
+        <sys:String>信息</sys:String>
+        <sys:String>警告</sys:String>
+        <sys:String>错误</sys:String>
+    </x:Array>
+
+    <!--  停机原因界面  -->
+    <sys:String x:Key="LL_StopReasonString1">未知原因</sys:String>
+    <sys:String x:Key="LL_StopReasonString2">环境不满足</sys:String>
+    <sys:String x:Key="LL_StopReasonString3">样品制作</sys:String>
+    <sys:String x:Key="LL_StopReasonString4">盘点</sys:String>
+    <sys:String x:Key="LL_StopReasonString5">PM(维护保养)</sys:String>
+    <sys:String x:Key="LL_StopReasonString6">SMED(品种切换)</sys:String>
+    <sys:String x:Key="LL_StopReasonString7">TPM(清洁点检)</sys:String>
+    <sys:String x:Key="LL_StopReasonString8">培训</sys:String>
+    <sys:String x:Key="LL_StopReasonString9">等待物料</sys:String>
+    <sys:String x:Key="LL_StopReasonString10">交接班</sys:String>
+    <sys:String x:Key="LL_StopReasonString11">SPC(首件检查)</sys:String>
+    <sys:String x:Key="LL_StopReasonString12">无生产计划</sys:String>
+    <sys:String x:Key="LL_StopReasonString13">品质异常</sys:String>
+    <sys:String x:Key="LL_StopReasonString14">物料更换</sys:String>
+    <sys:String x:Key="LL_StopReasonString15">来料异常</sys:String>
+    <sys:String x:Key="LL_StopReasonString16">现场岗位处理</sys:String>
+    <sys:String x:Key="LL_StopReasonString17">产能不匹配</sys:String>
+    <sys:String x:Key="LL_StopReasonString18">设备故障CM</sys:String>
+
+    <!--  Alarm Manage  -->
+    <sys:String x:Key="LL_AlarmID">IDEN</sys:String>
+    <sys:String x:Key="LL_AlarmTime">报警时间</sys:String>
+    <sys:String x:Key="LL_AlarmContent">报警内容</sys:String>
+    <sys:String x:Key="LL_AlarmRecoveryTime">恢复时间</sys:String>
+    <sys:String x:Key="LL_AlarmTimes">报警次数</sys:String>
+    <sys:String x:Key="LL_AlarmLoction">所在工位</sys:String>
+    <sys:String x:Key="LL_AlarmTotalTime">报警总时长</sys:String>
+    <sys:String x:Key="LL_AlarmAddField">添加报警字段</sys:String>
+    <sys:String x:Key="LL_AlarmAddRecord">添加报警纪录</sys:String>
+    <sys:String x:Key="LL_HandleAlarm">处理报警</sys:String>
+    <sys:String x:Key="LL_Alarm">报警</sys:String>
+    <sys:String x:Key="LL_MasterReset">一键复位</sys:String>
+    <sys:String x:Key="LL_AlarmHandled">处理完毕</sys:String>
+
+    <!--  Group Manage  -->
+    <sys:String x:Key="LL_RecordID">IDEN</sys:String>
+    <sys:String x:Key="LL_GroupID">角色名称</sys:String>
+    <sys:String x:Key="LL_GroupDesc">备注</sys:String>
+    <sys:String x:Key="LL_Operation">操作</sys:String>
+    <sys:String x:Key="LL_NavPrev">上一页</sys:String>
+    <sys:String x:Key="LL_NavNext">下一页</sys:String>
+    <sys:String x:Key="LL_EditGroup">编辑角色</sys:String>
+    <sys:String x:Key="LL_Permissions">权限</sys:String>
+
+    <sys:String x:Key="LL_PermissionLogin">登陆系统</sys:String>
+    <sys:String x:Key="LL_PermissionOperate">操作设备</sys:String>
+    <sys:String x:Key="LL_PermissionManageUser">用户管理</sys:String>
+    <sys:String x:Key="LL_PermissionSettings">系统设置</sys:String>
+    <sys:String x:Key="LL_PermissionDebug">设备调试</sys:String>
+    <sys:String x:Key="LL_PermissionQuery">报表查阅</sys:String>
+    <sys:String x:Key="LL_PermissionManualRecheck">手工复检</sys:String>
+    <sys:String x:Key="LL_PermissionFQA">FQA</sys:String>
+    <sys:String x:Key="LL_PermissionManageOpUser">操作员管理</sys:String>
+
+    <!--  User Manage  -->
+    <sys:String x:Key="LL_UserID">用户ID</sys:String>
+    <sys:String x:Key="LL_UserName">用户名</sys:String>
+    <sys:String x:Key="LL_UserPass">密码</sys:String>
+    <sys:String x:Key="LL_OldUserPass">原密码</sys:String>
+    <sys:String x:Key="LL_NewUserPass">新密码</sys:String>
+    <sys:String x:Key="LL_AgainNewUserPass">再次输入新密码</sys:String>
+    <sys:String x:Key="LL_STFUserName">系统用户名</sys:String>
+    <sys:String x:Key="LL_STFUserNameTips">请在下面输入您在ATL系统的工号，严禁使用他人工号！</sys:String>
+    <sys:String x:Key="LL_STFUserPass">系统密码</sys:String>
+    <sys:String x:Key="LL_FQA_LocalUserPass">本地密码</sys:String>
+    <sys:String x:Key="LL_UserGender">性别</sys:String>
+    <sys:String x:Key="LL_UserDept">所在部门</sys:String>
+    <sys:String x:Key="LL_UserDesc">用户描述</sys:String>
+    <sys:String x:Key="LL_UserCreateTime">创建时间</sys:String>
+    <sys:String x:Key="LL_UserUpdateTime">更新时间</sys:String>
+    <sys:String x:Key="LL_EditUser">编辑用户</sys:String>
+    <sys:String x:Key="LL_UserResigned">离职</sys:String>
+    <sys:String x:Key="LL_PermissionErr">该用户拥有你所没有的权限，所以你无法添加、修改或删除！</sys:String>
+    <sys:String x:Key="LL_WithoutPermissionErr">你没有该操作权限！</sys:String>
+    <sys:String x:Key="LL_fqaPasswordSetErr">两次输入的新密码不一致！</sys:String>
+    <sys:String x:Key="LL_fqaPasswordInputErr">原密码错误!</sys:String>
+    <sys:String x:Key="LL_ViewPassword">查看密码</sys:String>
+    <x:Array x:Key="LL_EGenders" Type="{x:Type sys:String}">
+        <sys:String>男</sys:String>
+        <sys:String>女</sys:String>
+        <sys:String>中性</sys:String>
+    </x:Array>
+
+    <!--  WearPartInfo Manage  -->
+    <sys:String x:Key="LL_EditWearPartInfo">编辑易损件</sys:String>
+    <sys:String x:Key="LL_MenuWearPartInfo">易损件定义</sys:String>
+
+    <sys:String x:Key="LL_WearPartNO">易损件编号</sys:String>
+    <sys:String x:Key="LL_PartName">部件名称</sys:String>
+    <sys:String x:Key="LL_FacilityName">工位名称</sys:String>
+    <sys:String x:Key="LL_LifeCycle">寿命</sys:String>
+    <sys:String x:Key="LL_Used">已使用</sys:String>
+    <sys:String x:Key="LL_Remain">可用</sys:String>
+    <sys:String x:Key="LL_Cycle">周期</sys:String>
+    <sys:String x:Key="LL_AlertRemainder">警报最小值</sys:String>
+    <sys:String x:Key="LL_AlertCycle">报警周期</sys:String>
+    <sys:String x:Key="LL_MaxAlertNumber">Max警报次数</sys:String>
+    <sys:String x:Key="LL_Manufactor">制造商</sys:String>
+    <sys:String x:Key="LL_FullName">总名称</sys:String>
+    <sys:String x:Key="LL_PartPicPath">示意图</sys:String>
+    <sys:String x:Key="LL_PartInstPicPath">更换示意图</sys:String>
+    <sys:String x:Key="LL_AddInfo1">预留字段1</sys:String>
+    <sys:String x:Key="LL_AddInfo2">预留字段2</sys:String>
+    <sys:String x:Key="LL_AddInfo3">预留字段3</sys:String>
+    <sys:String x:Key="LL_Down">下载</sys:String>
+    <x:Array x:Key="LL_EAlertCycle" Type="{x:Type sys:String}">
+        <sys:String>Login</sys:String>
+        <sys:String>Day</sys:String>
+        <sys:String>Shift</sys:String>
+        <sys:String>Hour</sys:String>
+        <sys:String>Continuous</sys:String>
+    </x:Array>
+
+    <!--  WearPartExt Manage  -->
+    <sys:String x:Key="LL_EditWearPartExt">编辑易损件</sys:String>
+    <sys:String x:Key="LL_MenuWearPartExt">易损件维护</sys:String>
+    <sys:String x:Key="LL_ReplaceBy">跟换人</sys:String>
+    <sys:String x:Key="LL_ReplaceTime">更换时间</sys:String>
+    <sys:String x:Key="LL_UsageTime">更换用时</sys:String>
+    <sys:String x:Key="LL_Remark">更换说明</sys:String>
+    <sys:String x:Key="LL_IsChanged">是否已更换</sys:String>
+
+
+    <!--  PushRecordPage  -->
+    <sys:String x:Key="LL_PushRecordID">推送ID</sys:String>
+    <sys:String x:Key="LL_PushType">类型</sys:String>
+    <sys:String x:Key="LL_PushContent">内容</sys:String>
+    <sys:String x:Key="LL_PushResponse">回复</sys:String>
+    <sys:String x:Key="LL_ErrCode">错误代码</sys:String>
+    <sys:String x:Key="LL_ElpsTime">调用耗时</sys:String>
+    <sys:String x:Key="LL_CreateBy">创建人</sys:String>
+    <sys:String x:Key="LL_CreateTime">创建时间</sys:String>
+
+    <!--  相机设置  -->
+    <sys:String x:Key="LL_Camera1">相机1</sys:String>
+    <sys:String x:Key="LL_Camera2">相机2</sys:String>
+    <sys:String x:Key="LL_CameraSwitch">相机切换</sys:String>
+    <sys:String x:Key="LL_VideoMode">视频开关</sys:String>
+    <sys:String x:Key="LL_AvgFilter">均值滤波</sys:String>
+    <sys:String x:Key="LL_CameraType">相机类型</sys:String>
+    <sys:String x:Key="LL_CameraSn">相机序列号</sys:String>
+    <sys:String x:Key="LL_CamImageWidth">图像宽度</sys:String>
+    <sys:String x:Key="LL_CamImageHeight">图像高度</sys:String>
+    <sys:String x:Key="LL_CamExposure">曝光时间</sys:String>
+    <sys:String x:Key="LL_CamGain">增益</sys:String>
+    <sys:String x:Key="LL_CamAgvFilterNum">均值滤波</sys:String>
+    <sys:String x:Key="LL_ShotDelay1">一角拍照延时/ms</sys:String>
+    <sys:String x:Key="LL_ShotDelay2">二角拍照延时/ms</sys:String>
+    <sys:String x:Key="LL_ShotDelay3">三角拍照延时/ms</sys:String>
+    <sys:String x:Key="LL_ShotDelay4">四角拍照延时/ms</sys:String>
+    <sys:String x:Key="LL_ScanBarcodeDelay">扫码延时/ms</sys:String>
+    <sys:String x:Key="LL_GrayLevelMin">灰度最小值</sys:String>
+    <sys:String x:Key="LL_GrayLevelMax">灰度最大值</sys:String>
+    <sys:String x:Key="LL_CamPixelRatio">像素比</sys:String>
+    <sys:String x:Key="LL_ActualDist">标定针直径</sys:String>
+    <sys:String x:Key="LL_MeasureDist">测量距离</sys:String>
+    <sys:String x:Key="LL_PixelDist">像素距离</sys:String>
+    <sys:String x:Key="LL_Calc">计算</sys:String>
+    <sys:String x:Key="LL_CalcFailMsg">计算失败！请按下鼠标左键拉一条直线并输入正确的物理实际距离！</sys:String>
+    <sys:String x:Key="LL_CamManualRefresh">手动采图</sys:String>
+    <sys:String x:Key="LL_CamCalibration">点检标定</sys:String>
+    <sys:String x:Key="LL_CNC">CNC</sys:String>
+    <sys:String x:Key="LL_CamMirror">镜像</sys:String>
+    <sys:String x:Key="LL_CamMirrorX">X</sys:String>
+    <sys:String x:Key="LL_CamMirrorY">Y</sys:String>
+    <sys:String x:Key="LL_VideoModeTips">设备处于运行模式时请勿打开视频模式</sys:String>
+    <sys:String x:Key="LL_Valtange">XRay电压</sys:String>
+    <sys:String x:Key="LL_Current">XRay电流</sys:String>
+    <sys:String x:Key="LL_ValtangeEnglish">Valtange</sys:String>
+    <sys:String x:Key="LL_CurrentEnglish">Current</sys:String>
+    <!--  检测参数设置  -->
+
+    <!--  DashBoard  -->
+    <sys:String x:Key="LL_AutoTesting">自动点检中...</sys:String>
+    <sys:String x:Key="LL_AutoTestFinish">点检完成, 请开始上料！</sys:String>
+    <sys:String x:Key="LL_StatusRunning">正常运行中</sys:String>
+    <sys:String x:Key="LL_CurrentModel">当前型号</sys:String>
+    <sys:String x:Key="LL_StatusRunningPending">运行待料中</sys:String>
+    <sys:String x:Key="LL_StatusStopped">暂停/停机中</sys:String>
+    <sys:String x:Key="LL_StatusAlarm">异常处理中</sys:String>
+    <sys:String x:Key="LL_AutoModeSel">模式选择</sys:String>
+    <sys:String x:Key="LL_AutoModeSelSTF">TSC模式</sys:String>
+    <sys:String x:Key="LL_AutoModeSelLocal">单机模式</sys:String>
+    <sys:String x:Key="LL_AutoModeSw">开机状态</sys:String>
+    <sys:String x:Key="LL_ReworkMode">重做标志</sys:String>
+    <sys:String x:Key="LL_MIFailMsg">产品参数加载失败！请检测MI文件路径和产品名称是否正确！</sys:String>
+    <x:Array x:Key="LL_ECheckExtensions" Type="{x:Type sys:String}">
+        <sys:String>I-Factory自动</sys:String>
+        <sys:String>点检模式</sys:String>
+        <sys:String>单机模式</sys:String>
+    </x:Array>
+
+    <sys:String x:Key="LL_EResultCodes_OK">算法判定OK</sys:String>
+    <sys:String x:Key="LL_EResultCodes_AlgoFail">算法判定NG</sys:String>
+
+    <sys:String x:Key="LL_EResultCodes_ScanFail">扫码失败</sys:String>
+    <sys:String x:Key="LL_EResultCodes_ShotFail">拍照失败</sys:String>
+
+    <sys:String x:Key="LL_EResultCodes_STFCellValidatePrevCraft">IFactory校验接口异常</sys:String>
+    <sys:String x:Key="LL_EResultCodes_STFDataXRAYAddFail">IFactory上料接口异常</sys:String>
+    <sys:String x:Key="LL_EResultCodes_STFCellValidateScanFail">IFactory扫码接口异常</sys:String>
+    <sys:String x:Key="LL_EResultCodes_STFDataXRAYEditEnd">IFactory数据上传接口异常</sys:String>
+    <sys:String x:Key="LL_EResultCodes_STFDataXRAYEditFinal">IFactory下料接口异常</sys:String>
+
+    <sys:String x:Key="LL_EResultCodes_AlgoErr">算法：位置错误或黑白图</sys:String>
+    <sys:String x:Key="LL_EResultCodes_PosErr">算法：位置错误</sys:String>
+    <sys:String x:Key="LL_EResultCodes_WhiteImg">算法：白图</sys:String>
+    <sys:String x:Key="LL_EResultCodes_BlackImg">算法：黑图</sys:String>
+    <sys:String x:Key="LL_EResultCodes_Broken">算法：破图</sys:String>
+    <sys:String x:Key="LL_EResultCodes_ShapeNG">算法：ShapeNG</sys:String>
+    <sys:String x:Key="LL_EResultCodes_FoundOK">重复检测OK料，使用以前结果OK</sys:String>
+    <sys:String x:Key="LL_EResultCodes_FoundNG">重复检测NG料，使用以前结果NG</sys:String>
+    <sys:String x:Key="LL_EResultCodes_Unknow">未知异常</sys:String>
+
+    <!--  版本控制  -->
+    <sys:String x:Key="LL_MoudleName">模块名称</sys:String>
+    <sys:String x:Key="LL_CurrentVersion">当前版本号</sys:String>
+    <sys:String x:Key="LL_CurrentDebugTime">当前编译时间</sys:String>
+    <sys:String x:Key="LL_NewVersion">新版本号</sys:String>
+    <sys:String x:Key="LL_NewDebugTime">新编译时间</sys:String>
+    <sys:String x:Key="LL_IsUpdate">是否有更新</sys:String>
+
+    <!--  StatusPage  -->
+    <sys:String x:Key="LL_Operator">操作员</sys:String>
+    <sys:String x:Key="LL_StartTime">统计时间</sys:String>
+    <sys:String x:Key="LL_CheckedNum">当前产量</sys:String>
+    <sys:String x:Key="LL_OKNum">OK总数</sys:String>
+    <sys:String x:Key="LL_NGNum">X光检测NG数</sys:String>
+    <sys:String x:Key="LL_ScanNGNum">扫码NG数</sys:String>
+    <sys:String x:Key="LL_OtherNGNum">测厚NG数</sys:String>
+    <sys:String x:Key="LL_PassRate">良品率</sys:String>
+    <sys:String x:Key="LL_ManualCheck">手工复检</sys:String>
+    <sys:String x:Key="LL_FQA">FQA</sys:String>
+    <sys:String x:Key="LL_ClearStat">重新计数</sys:String>
+    <sys:String x:Key="LL_ShowStopReason">停机界面</sys:String>
+    <!--  XRay Status  -->
+    <x:Array x:Key="LL_ETubeStatus" Type="{x:Type sys:String}">
+        <sys:String>待机中</sys:String>
+        <sys:String>正在预热</sys:String>
+        <sys:String>XRay待机</sys:String>
+        <sys:String>XRay照射中</sys:String>
+        <sys:String>过载保护</sys:String>
+        <sys:String>无法照射</sys:String>
+        <sys:String>XRay自检</sys:String>
+        <sys:String>未知状态</sys:String>
+    </x:Array>
+    <sys:String x:Key="LL_LockStatus">连锁状态</sys:String>
+    <sys:String x:Key="LL_HardwareError">硬件错误</sys:String>
+
+    <!--  一般设置  -->
+    <sys:String x:Key="LL_GeneralSettings">程序设置</sys:String>
+    <sys:String x:Key="LL_LanguageSelect">语言选择</sys:String>
+    <sys:String x:Key="LL_UpdateDir">程序升级目录</sys:String>
+    <sys:String x:Key="LL_DbCleanDays">电池数据保存时间</sys:String>
+    <sys:String x:Key="LL_DbCleanDaysMisc">其他数据保存时间</sys:String>
+    <sys:String x:Key="LL_HardwareCom">硬件连接</sys:String>
+    <sys:String x:Key="LL_ReCheck">复检</sys:String>
+    <sys:String x:Key="LL_AutoOpenXRay">运行时确保XRay打开</sys:String>
+    <sys:String x:Key="LL_Xray1Com">光管设置</sys:String>
+    <sys:String x:Key="LL_Xray2Com">光管设置</sys:String>
+    <sys:String x:Key="LL_ScanCom">扫码枪设置</sys:String>
+    <sys:String x:Key="LL_ScanTestCode">扫码测试结果</sys:String>
+    <sys:String x:Key="LL_AlarmTimeTuble">光管报警时间</sys:String>
+
+    <sys:String x:Key="LL_ImageSaveOptions">图片保存设置</sys:String>
+    <sys:String x:Key="LL_SaveOKOrigImage">保存OK原始图</sys:String>
+    <sys:String x:Key="LL_SaveNGOrigImage">保存NG原始图</sys:String>
+    <sys:String x:Key="LL_SaveOrigPath">原始图保存位置</sys:String>
+    <sys:String x:Key="LL_SaveRecheckPath">手动检测结果</sys:String>
+
+    <sys:String x:Key="LL_SaveOKTestImage">保存OK结果图</sys:String>
+    <sys:String x:Key="LL_SaveNGTestImage">保存NG结果图</sys:String>
+    <sys:String x:Key="LL_SaveTestPath">结果图保存位置</sys:String>
+    <sys:String x:Key="LL_UseDynamicTestPath">使用STF动态位置</sys:String>
+    <sys:String x:Key="LL_SaveStartupImage">保存点检图片</sys:String>
+    <sys:String x:Key="LL_StartupPath">点检图保存位置</sys:String>
+    <sys:String x:Key="LL_ThicknessSetting">厚度设置</sys:String>
+    <sys:String x:Key="LL_ThicknessMin">最小值</sys:String>
+    <sys:String x:Key="LL_ThicknessMax">最大值</sys:String>
+    <sys:String x:Key="LL_ThicknessCaliVal">标定值</sys:String>
+
+    <sys:String x:Key="LL_SaveImageFormat">图片格式</sys:String>
+    <sys:String x:Key="LL_SaveOverwrite">磁盘自动覆盖(%)</sys:String>
+
+    <!--  效率分析  -->
+    <sys:String x:Key="LL_TimeMeasurementsSwitch">开启分析</sys:String>
+    <sys:String x:Key="LL_CycleTime">动作周期</sys:String>
+    <sys:String x:Key="LL_CycleMoveTime">转盘转动时间</sys:String>
+    <sys:String x:Key="LL_EntranceMoveTime">上料工位动作时间</sys:String>
+    <sys:String x:Key="LL_EntranceTime">上料时间</sys:String>
+    <sys:String x:Key="LL_HeadShotMoveTime">头部拍照工位动作时间</sys:String>
+    <sys:String x:Key="LL_TailShotMoveTime">尾部拍照工位动作时间</sys:String>
+    <sys:String x:Key="LL_TailExitTime">下料时间</sys:String>
+    <sys:String x:Key="LL_HeadShotTime1">头部1拍照时间</sys:String>
+    <sys:String x:Key="LL_HeadShotTime2">头部2拍照时间</sys:String>
+    <sys:String x:Key="LL_TailShotTime1">头部1拍照时间</sys:String>
+    <sys:String x:Key="LL_TailShotTime2">头部2拍照时间</sys:String>
+    <sys:String x:Key="LL_HeadMoveTime">头部电池移动时间</sys:String>
+    <sys:String x:Key="LL_TailMoveTime">尾部电池移动时间</sys:String>
+    <sys:String x:Key="LL_ScanTime">扫描时间</sys:String>
+    <sys:String x:Key="LL_Output1Min">一分钟产量</sys:String>
+    <sys:String x:Key="LL_OutputRealTime">实时产量</sys:String>
+
+    <!--  STF Debug  -->
+    <sys:String x:Key="LL_STFEnabled">是否启用</sys:String>
+    <sys:String x:Key="LL_STFEnabledTips">切换此开关之后必须重启生效！</sys:String>
+    <sys:String x:Key="LL_STFTypeT">接口类型</sys:String>
+    <x:Array x:Key="LL_STFClientTypes" Type="{x:Type sys:String}">
+        <sys:String>ATL I-Factory</sys:String>
+        <sys:String>模拟服务</sys:String>
+    </x:Array>
+
+    <sys:String x:Key="LL_STFDebug">STF接口调试</sys:String>
+    <sys:String x:Key="LL_AssetsNo">资产编号</sys:String>
+    <sys:String x:Key="LL_ProductLineNo">产线编号</sys:String>
+    <sys:String x:Key="LL_DeviceGroupDID">设备组DID</sys:String>
+    <sys:String x:Key="LL_ProductNO">产品型号</sys:String>
+    <sys:String x:Key="LL_EndProductNO">最终产品编号</sys:String>
+    <sys:String x:Key="LL_CraftWork">工艺</sys:String>
+    <sys:String x:Key="LL_Process">工序</sys:String>
+    <sys:String x:Key="LL_FactoryID">工厂编号</sys:String>
+    <sys:String x:Key="LL_Segment">工段</sys:String>
+    <sys:String x:Key="LL_Quarters">岗位名</sys:String>
+    <sys:String x:Key="LL_StaffID">工号</sys:String>
+    <sys:String x:Key="LL_Test">测试</sys:String>
+    <sys:String x:Key="LL_Start">开机</sys:String>
+    <sys:String x:Key="LL_Shift">班别</sys:String>
+
+    <sys:String x:Key="LL_BarCode">电芯条码</sys:String>
+    <sys:String x:Key="LL_IsOVerLine">跨线投料标志</sys:String>
+    <sys:String x:Key="LL_ScanRetryTimes">重试次数</sys:String>
+    <sys:String x:Key="LL_DataLinkID">单元内序号</sys:String>
+    <sys:String x:Key="LL_PicCode">图片转码</sys:String>
+    <sys:String x:Key="LL_PicPath">图片路径</sys:String>
+    <sys:String x:Key="LL_BatterySeatDataTips">其他数据随机生成！</sys:String>
+    <sys:String x:Key="LL_ProductionEndDate">生产结束时间</sys:String>
+    <sys:String x:Key="LL_Remarks">备注</sys:String>
+    <sys:String x:Key="LL_DefectCode">缺陷代码</sys:String>
+    <sys:String x:Key="LL_FQAUserName">中控FQA用户名</sys:String>
+    <sys:String x:Key="LL_FQAUserPass">中控FQA密码</sys:String>
+
+    <sys:String x:Key="LL_DeviceStartupValidate">开机校验</sys:String>
+    <sys:String x:Key="LL_CellValidatePreCraft">电芯校验</sys:String>
+    <sys:String x:Key="LL_CellValidateScanFail">扫码异常</sys:String>
+    <sys:String x:Key="LL_DataXRayAddS1">上料数据上传</sys:String>
+    <sys:String x:Key="LL_DataXRayEditEnd">X-Ray数据上传</sys:String>
+    <sys:String x:Key="LL_DataXRayEditFinal">下料数据上传</sys:String>
+    <sys:String x:Key="LL_CommResendUpdate">电芯数据重传</sys:String>
+    <sys:String x:Key="LL_DeviceStatus">设备组生产状态</sys:String>
+    <sys:String x:Key="LL_DeviceIsReady">设备是否准备好</sys:String>
+    <sys:String x:Key="LL_FacilityStatus">工位状态</sys:String>
+    <sys:String x:Key="LL_PLCDID">PLC编号</sys:String>
+    <sys:String x:Key="LL_PLCStatus">PLC状态</sys:String>
+
+    <sys:String x:Key="LL_DeviceStatusEditState">设备状态更新</sys:String>
+    <sys:String x:Key="LL_DeviceAlertNew">设备报警上传</sys:String>
+    <sys:String x:Key="LL_DeviceAlertConfirm">报警处理</sys:String>
+    <sys:String x:Key="LL_AlertCurrentView">当前报警查询</sys:String>
+    <sys:String x:Key="LL_AlarmRuleDID">报警规则号</sys:String>
+    <sys:String x:Key="LL_FacilityDID">工位编号</sys:String>
+    <sys:String x:Key="LL_AlarmRecordDID">报警记录号</sys:String>
+    <sys:String x:Key="LL_DisposeState">处理状态</sys:String>
+    <sys:String x:Key="LL_Address">报警地址</sys:String>
+
+    <sys:String x:Key="LL_DeviceStopRecord">停机原因上传</sys:String>
+    <sys:String x:Key="LL_MaintainCode">停机代码</sys:String>
+    <sys:String x:Key="LL_StopReason">停机原因</sys:String>
+    <sys:String x:Key="LL_StopTime">开始停机时间</sys:String>
+    <sys:String x:Key="LL_StopEndTime">停机结束时间</sys:String>
+    <sys:String x:Key="LL_StopMinute">停机时长/min</sys:String>
+
+    <sys:String x:Key="LL_ProduceCommonNg">NG电芯数上报</sys:String>
+    <sys:String x:Key="LL_ProduceDataCommonNg">生产日期</sys:String>
+    <sys:String x:Key="LL_NgCountCommonNg">当班NG电芯数</sys:String>
+
+    <sys:String x:Key="LL_Alertplotter">警报曲线图</sys:String>
+    <sys:String x:Key="LL_Find">查询</sys:String>
+
+    <sys:String x:Key="LL_Mode">上传方式</sys:String>
+
+    <!--  电池检测  -->
+    <sys:String x:Key="LL_BatteryBarCode">电芯条码</sys:String>
+    <sys:String x:Key="LL_StartTiem">扫码时间</sys:String>
+    <sys:String x:Key="LL_EndTime">下料时间</sys:String>
+    <sys:String x:Key="LL_QueryTime">查询时间</sys:String>
+    <sys:String x:Key="LL_FinalResult">结果</sys:String>
+    <sys:String x:Key="LL_A1_Min">1-Min</sys:String>
+    <sys:String x:Key="LL_A1_Max">1-Max</sys:String>
+    <sys:String x:Key="LL_A2_Min">2-Min</sys:String>
+    <sys:String x:Key="LL_A2_Max">2-Max</sys:String>
+    <sys:String x:Key="LL_A3_Min">3-Min</sys:String>
+    <sys:String x:Key="LL_A3_Max">3-Max</sys:String>
+    <sys:String x:Key="LL_A4_Min">4-Min</sys:String>
+    <sys:String x:Key="LL_A4_Max">4-Max</sys:String>
+
+    <!--  导出参数  -->
+    <sys:String x:Key="LL_DetectionMode">检测模式</sys:String>
+    <sys:String x:Key="LL_DetectExtMode">检测扩展模式</sys:String>
+    <sys:String x:Key="LL_ResultCode">结果代码</sys:String>
+    <sys:String x:Key="LL_ResultPath">结果图路径</sys:String>
+
+    <sys:String x:Key="LL_PhotographTime">拍照时间</sys:String>
+    <sys:String x:Key="LL_PhotographResult">拍照结果</sys:String>
+    <sys:String x:Key="LL_OriginalImagePath">原始图路径</sys:String>
+    <sys:String x:Key="LL_ResultImagePath">结果图路径</sys:String>
+    <sys:String x:Key="LL_Status">XRAY状态</sys:String>
+    <sys:String x:Key="LL_Voltage">电压</sys:String>
+    <sys:String x:Key="LL_ElectricCurrent">电流</sys:String>
+    <sys:String x:Key="LL_UsagedTime">使用时间</sys:String>
+    <sys:String x:Key="LL_DetectionLayer">检测层数</sys:String>
+    <sys:String x:Key="LL_MarkingResult">算法结果</sys:String>
+    <sys:String x:Key="LL_Min">Min</sys:String>
+    <sys:String x:Key="LL_Max">Max</sys:String>
+    <sys:String x:Key="LL_Distance">Distance</sys:String>
+    <sys:String x:Key="LL_Angle">Angle</sys:String>
+    <sys:String x:Key="LL_LayerNum">电池层数</sys:String>
+    <sys:String x:Key="LL_RecheckState">复检状态</sys:String>
+    <sys:String x:Key="LL_RecheckTime">复检时间</sys:String>
+    <sys:String x:Key="LL_RecheckUserID">复检人员</sys:String>
+    <sys:String x:Key="LL_FAQTime">FQA时间</sys:String>
+    <sys:String x:Key="LL_FQAUser">FQA人员</sys:String>
+    <sys:String x:Key="LL_FQAUploadAuth">中控认证用户名或密码为空禁止上传，请在系统设置-&gt;STF设置设置中控用户名和密码并保存！</sys:String>
+    <!--  检测参数  -->
+    <sys:String x:Key="LL_CheckModeT">检测模式</sys:String>
+    <x:Array x:Key="LL_ECheckModes" Type="{x:Type sys:String}">
+        <sys:String>四角检测</sys:String>
+        <sys:String>对角13</sys:String>
+        <sys:String>对角24</sys:String>
+        <!--  recompose by fjy -->
+    </x:Array>
+
+    <sys:String x:Key="LL_IsDrawLine">显示检测线</sys:String>
+    <sys:String x:Key="LL_IsDrawData">显示检测数据</sys:String>
+    <sys:String x:Key="LL_IsDrawAngle">显示检测角度</sys:String>
+    <sys:String x:Key="LL_IsDetectAngle">需要测试角度</sys:String>
+    <sys:String x:Key="LL_Max_AngleThresh">最大角度阈值</sys:String>
+
+    <sys:String x:Key="LL_MIDataDir">MI数据文件</sys:String>
+    <sys:String x:Key="LL_MIData">MI数据</sys:String>
+    <sys:String x:Key="LL_MIDataTips">MI数据不需要设置，在开机校验后自动加载！</sys:String>
+    <sys:String x:Key="LL_Load">读取</sys:String>
+    <sys:String x:Key="LL_Active">应用</sys:String>
+    <sys:String x:Key="LL_MIDataFailedMsg">读取MI数据文件失败！请检查文件目录是否存在！</sys:String>
+    <sys:String x:Key="LL_Spec">规格</sys:String>
+    <sys:String x:Key="LL_HeadSpecMin">头部最小值</sys:String>
+    <sys:String x:Key="LL_HeadSpecMax">头部最大值</sys:String>
+    <sys:String x:Key="LL_TailSpecMin">尾部最小值</sys:String>
+    <sys:String x:Key="LL_TailSpecMax">尾部最大值</sys:String>
+    <sys:String x:Key="LL_ABSettings">AB角设置</sys:String>
+    <sys:String x:Key="LL_CDSettings">CD角设置</sys:String>
+    <sys:String x:Key="LL_BatLayers">电池层数</sys:String>
+    <sys:String x:Key="LL_Width">Width</sys:String>
+    <sys:String x:Key="LL_Height">Height</sys:String>
+
+    <!--  手工核对  -->
+    <sys:String x:Key="LL_CurManualResult">当前结果</sys:String>
+    <sys:String x:Key="LL_PrevImage">上一组</sys:String>
+    <sys:String x:Key="LL_NextImage">下一组</sys:String>
+    <sys:String x:Key="LL_WaitCheck">待判</sys:String>
+    <sys:String x:Key="LL_ManualCheckOK">判定OK</sys:String>
+    <sys:String x:Key="LL_ManualCheckNG">判定NG</sys:String>
+    <sys:String x:Key="LL_SubmitResult">提交结果</sys:String>
+    <sys:String x:Key="LL_FQASubmitResult">FQA提交</sys:String>
+    <sys:String x:Key="LL_FQAAccept">FQA确认</sys:String>
+    <sys:String x:Key="LL_FQAReject">FQA打回</sys:String>
+    <sys:String x:Key="LL_FQAUpload">FQA上传</sys:String>
+    <sys:String x:Key="LL_ImgNotFound">图片文件不存在！</sys:String>
+    <sys:String x:Key="LL_RecheckSaveTips">关闭此窗口将丢失所有修改，请确认你已经提交正在进行的工作！</sys:String>
+    <sys:String x:Key="LL_RecheckSaveTips2">临时退出可点击最小化按钮，以便处理机台后继续恢复您的工作！</sys:String>
+    <sys:String x:Key="LL_RecheckShortcutTips">FQA状态下标记快捷键无效，请使用鼠标点击！</sys:String>
+
+    <sys:String x:Key="LL_ManualCheckTotal">需判定总数</sys:String>
+    <sys:String x:Key="LL_ManualCheckNow">已判定(或FQAMK)数</sys:String>
+    <sys:String x:Key="LL_ManualCheckCurIndex">当前图片索引</sys:String>
+    <sys:String x:Key="LL_ManualCheckRemain">待判定数</sys:String>
+    <sys:String x:Key="LL_ManualCheckSpeed">预估判定速度</sys:String>
+    <sys:String x:Key="LL_ManualCheckTimeRemain">预估剩余时间</sys:String>
+
+    <!--  QATool  -->
+    <sys:String x:Key="LL_ManualRecheck">人工复检</sys:String>
+    <sys:String x:Key="LL_NumberNeedRecheck">待复检个数</sys:String>
+    <sys:String x:Key="LL_NumberNeedFQA">待FQA个数</sys:String>
+    <sys:String x:Key="LL_NumberNeedUploadFQA">FQAOK待上传个数</sys:String>
+    <sys:String x:Key="LL_NumberNeedUploadNG">NG待上传个数</sys:String>
+    <sys:String x:Key="LL_QASamplingInspection">QA抽检</sys:String>
+    <sys:String x:Key="LL_StartInspectTime">开始时间</sys:String>
+    <sys:String x:Key="LL_EndInspectTime">结束时间</sys:String>
+    <sys:String x:Key="LL_InspectNG">包含NG图片</sys:String>
+    <sys:String x:Key="LL_InspectOK">包含OK图片</sys:String>
+    <sys:String x:Key="LL_InspectNumber">抽检个数</sys:String>
+    <sys:String x:Key="LL_InspectMethod">抽检方法</sys:String>
+    <sys:String x:Key="LL_InspectByOrder">顺序</sys:String>
+    <sys:String x:Key="LL_InspectByRandom">随机</sys:String>
+    <sys:String x:Key="LL_InspectImageType">拷贝图片类型</sys:String>
+    <sys:String x:Key="LL_InspectOriginImage">原图</sys:String>
+    <sys:String x:Key="LL_InspectResultImage">结果图</sys:String>
+    <sys:String x:Key="LL_SaveLocation">存储位置</sys:String>
+    <sys:String x:Key="LL_GetCheckImageTips">随机抽取某一时间段的图片拷贝到指定目录进行检测。</sys:String>
+    <sys:String x:Key="LL_RecheckStatusPageTips">注意：本页数据不是实时实时数据，请手动刷新！</sys:String>
+    <sys:String x:Key="LL_InspectCountOver">抽检数目超出指定时间段已有的数量，请减小抽检数目或扩大抽检时间范围</sys:String>
+
+
+    <!--  跨线投料计划  -->
+    <sys:String x:Key="LL_FeedingPlanDID">跨线计划编号</sys:String>
+    <sys:String x:Key="LL_PlanQty">计划投料数量</sys:String>
+    <sys:String x:Key="LL_SourceProductLineNO">源产线编号</sys:String>
+    <sys:String x:Key="LL_ProductDate">生产日期</sys:String>
+    <sys:String x:Key="LL_OverlineInfo">编辑跨料计划信息</sys:String>
+
+    <!--  CheckLogic  -->
+    <sys:String x:Key="LL_AlarmHandleTips">请按解决方案解决异常后确定继续，或者你可以取消处理并在实时报警界面查看详细信息！</sys:String>
+    <sys:String x:Key="LL_ClearAllAlarmHandleTips">请注意，即将一键清除所有报警！</sys:String>
+    <sys:String x:Key="LL_PLCComErr">PLC 通讯错误</sys:String>
+    <sys:String x:Key="LL_PLCErrDisconnected">PLC 连接断开</sys:String>
+    <sys:String x:Key="LL_PLCComSolution">请检查PLC连接是否正常，端口是否设置正确！</sys:String>
+    <sys:String x:Key="LL_PLCAlarm">PLC 报警</sys:String>
+    <sys:String x:Key="LL_PLCAlarmSolution">请在解决异常原因后按异常处理键。</sys:String>
+
+    <sys:String x:Key="LL_AppErr">应用程序异常</sys:String>
+    <sys:String x:Key="LL_AppErrTips">未预测的程序异常，请将日志发给开发人员处理，PLC需要重新开机！</sys:String>
+
+    <sys:String x:Key="LL_STFErr">STF接口错误</sys:String>
+    <sys:String x:Key="LL_STFErrTips">请在PLC报警后取出电池，并复位PLC。建议将日志发给开发人员分析！</sys:String>
+    <sys:String x:Key="LL_STFErrPreCraft">上料校验连续5次错误，可能该批料不允许生产或上个工序未完成！</sys:String>
+
+    <sys:String x:Key="LL_DBErr">数据库存储错误</sys:String>
+    <sys:String x:Key="LL_DBErrTips">致命错误!可能导致数据丢失，请立即重启应用程序并将日志交给开发人员分析！</sys:String>
+
+    <sys:String x:Key="LL_ImgSaveErr">图片保存失败</sys:String>
+    <sys:String x:Key="LL_ImageErrTips">请检查磁盘是否已满，图片保存路径是否存在，请将日志交给开发人员分析！</sys:String>
+
+    <sys:String x:Key="LL_CheckLogicErr">检测逻辑错误</sys:String>
+    <sys:String x:Key="LL_CheckLogicErrTips">程序内部信号同步超时，此情况不应该发生，可能是接口调用超时。请等待PLC报警后重新开机！</sys:String>
+
+    <sys:String x:Key="LL_CheckTestErr">点检失败</sys:String>
+    <sys:String x:Key="LL_ScanFailErr">条码扫描失败</sys:String>
+    <sys:String x:Key="LL_CheckTestErrTips">该电池未判NG，请检查检测参数是否有误！</sys:String>
+
+    <sys:String x:Key="LL_CameraErr">拍照异常</sys:String>
+    <sys:String x:Key="LL_CameraErrTips">相机拍照失败，请检查相机电源是否连接并重启应用程序，如果问题仍然存在请重启电脑！</sys:String>
+
+    <sys:String x:Key="LL_XRayErr">XRay不在照射状态！</sys:String>
+    <sys:String x:Key="LL_XRayErrTips">光管不在照射状态，请等待光管预热完成并开始照射之后再启动！</sys:String>
+    <sys:String x:Key="LL_XRayOutTime">XRay光管使用时长超限</sys:String>
+    <sys:String x:Key="LL_XRayOutTimeTips">光管使用时长超限，请更换新光管</sys:String>
+
+    <sys:String x:Key="LL_TestErr">点检失败！</sys:String>
+    <sys:String x:Key="LL_TestErrTips">点检条码数量不足！</sys:String>
+    <sys:String x:Key="LL_TestErrCode">规定时间未点检，未扫码或本条码不在点检库内，条码号</sys:String>
+    <sys:String x:Key="LL_TestErrNumErr">点检条码太少，设置检测数量为</sys:String>
+    <sys:String x:Key="LL_TestErrNotNG">点检电池未判NG，参数设置错误！</sys:String>
+    <sys:String x:Key="LL_TestErrTime">到规定时间未点检，不能启动！上次点检时间为</sys:String>
+
+    <sys:String x:Key="LL_InitErrStart">系统初始化失败禁止开机</sys:String>
+    <sys:String x:Key="LL_InitErrStartTips">解决所有初始化提示的异常后请重启程序！</sys:String>
+    <sys:String x:Key="LL_InitErrStopReason">有停机或者暂停状态</sys:String>
+    <sys:String x:Key="LL_InitErrStopReasonTips">请选择停机原因</sys:String>
+
+    <!--  Alarm History  -->
+    <sys:String x:Key="LL_AlarmSource">警报源</sys:String>
+    <sys:String x:Key="LL_AlarmAddress">警报地址</sys:String>
+    <sys:String x:Key="LL_AlarmLevel">警报级别</sys:String>
+    <!--  创建时间  -->
+    <sys:String x:Key="LL_AlarmReason">警报原因</sys:String>
+    <sys:String x:Key="LL_AlarmSolution">解决方案</sys:String>
+
+    <!--  警报源  -->
+    <x:Array x:Key="LL_EAlarmSources" Type="{x:Type sys:String}">
+        <sys:String>PLC通讯异常</sys:String>
+        <sys:String>PLC报警</sys:String>
+        <sys:String>IFACTORY接口</sys:String>
+        <sys:String>相机异常</sys:String>
+        <sys:String>检测逻辑</sys:String>
+        <sys:String>程序错误</sys:String>
+        <sys:String>数据库异常</sys:String>
+        <sys:String>点检异常</sys:String>
+        <sys:String>扫码器</sys:String>
+        <sys:String>光管异常</sys:String>
+    </x:Array>
+
+    <!--  报警列表  -->
+    <sys:String x:Key="LL_W1.00">启动时右边无NG料盒</sys:String>
+    <sys:String x:Key="LL_W1.01">启动时左NG料盒有残料</sys:String>
+    <sys:String x:Key="LL_W1.02">启动时右NG料盒有残料</sys:String>
+    <sys:String x:Key="LL_W1.03">启动时转盘上有残料</sys:String>
+    <sys:String x:Key="LL_W1.04">转盘电机伺服报警</sys:String>
+    <sys:String x:Key="LL_W1.05">初始化超时</sys:String>
+    <sys:String x:Key="LL_W1.06">紧急停止</sys:String>
+    <sys:String x:Key="LL_W1.07">启动时左边无NG料盒</sys:String>
+    <sys:String x:Key="LL_W1.08">工站感应器异常</sys:String>
+    <sys:String x:Key="LL_W1.09">转盘动作时手臂未在安全位置</sys:String>
+    <sys:String x:Key="LL_W1.10">主真空压力过低</sys:String>
+    <sys:String x:Key="LL_W1.11">启动时下料手臂上有电池</sys:String>
+    <sys:String x:Key="LL_W1.12">启动时手臂不在停机状态</sys:String>
+    <sys:String x:Key="LL_W1.13">手臂通讯异常</sys:String>
+    <sys:String x:Key="LL_W1.14">PC要求停止</sys:String>
+    <sys:String x:Key="LL_W1.15">产品未设置</sys:String>
+    <sys:String x:Key="LL_W2.00">PC通讯异常</sys:String>
+    <sys:String x:Key="LL_W2.01">此报警现已取消</sys:String>
+    <sys:String x:Key="LL_W3.00">出料皮带伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.01">光管1横移伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.02">光管2横移伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.03">光管1升降伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.04">光管2升降伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.05">一工站伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.06">二工站伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.07">三工站伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.08">四工站伺服警报</sys:String>
+    <sys:String x:Key="LL_W3.09">入料输送伺服警报</sys:String>
+    <sys:String x:Key="LL_W4.00">遮光气缸1动作异常</sys:String>
+    <sys:String x:Key="LL_W4.01">遮光气缸1复位异常</sys:String>
+    <sys:String x:Key="LL_W4.02">遮光气缸2动作异常</sys:String>
+    <sys:String x:Key="LL_W4.03">遮光气缸2复位异常</sys:String>
+    <sys:String x:Key="LL_W4.04">左闸门气缸动作异常</sys:String>
+    <sys:String x:Key="LL_W4.05">左闸门气缸复位异常</sys:String>
+    <sys:String x:Key="LL_W4.06">右闸门气缸动作异常</sys:String>
+    <sys:String x:Key="LL_W4.07">右闸门气缸复位异常</sys:String>
+    <sys:String x:Key="LL_W4.08">横移闸门气缸动作异常</sys:String>
+    <sys:String x:Key="LL_W4.09">横移闸门气缸复位异常</sys:String>
+    <sys:String x:Key="LL_W5.00">闸门状态异常</sys:String>
+    <sys:String x:Key="LL_W5.04">软件队列位移超时</sys:String>
+    <sys:String x:Key="LL_W5.05">手臂其他警报</sys:String>
+    <sys:String x:Key="LL_W5.06">一工站真空异常</sys:String>
+    <sys:String x:Key="LL_W5.07">二工站真空异常</sys:String>
+    <sys:String x:Key="LL_W5.08">三工站真空异常</sys:String>
+    <sys:String x:Key="LL_W5.09">四工站真空异常</sys:String>
+    <sys:String x:Key="LL_W5.10">光管动作超时</sys:String>
+    <sys:String x:Key="LL_W5.11">入料皮带电池超限位警报</sys:String>
+    <sys:String x:Key="LL_W5.12">上料手臂抓料超时</sys:String>
+    <sys:String x:Key="LL_W5.13">上料手臂放料超时</sys:String>
+    <sys:String x:Key="LL_W5.14">下料手臂抓料超时</sys:String>
+    <sys:String x:Key="LL_W5.15">下料手臂放料超时</sys:String>
+    <sys:String x:Key="LL_W6.00">等待拍照结果超时</sys:String>
+    <sys:String x:Key="LL_W6.01">扫码超时</sys:String>
+    <sys:String x:Key="LL_W6.02">头部拍照1超时</sys:String>
+    <sys:String x:Key="LL_W6.03">头部拍照2超时</sys:String>
+    <sys:String x:Key="LL_W6.04">尾部拍照1超时</sys:String>
+    <sys:String x:Key="LL_W6.05">尾部拍照2超时</sys:String>
+    <sys:String x:Key="LL_W6.06">料盒准备异常</sys:String>
+    <sys:String x:Key="LL_W6.07">转盘马达动作超时</sys:String>
+    <sys:String x:Key="LL_W6.08">一工站马达动作超时</sys:String>
+    <sys:String x:Key="LL_W6.09">二工站马达动作超时</sys:String>
+    <sys:String x:Key="LL_W6.10">三工站马达动作超时</sys:String>
+    <sys:String x:Key="LL_W6.11">四工站马达动作超时</sys:String>
+    <sys:String x:Key="LL_W6.12">出料皮带动作超时</sys:String>
+    <sys:String x:Key="LL_W6.13">总线异常</sys:String>
+    <sys:String x:Key="LL_W6.14">PLC异常</sys:String>
+    <sys:String x:Key="LL_W6.15">MC异常</sys:String>
+    <sys:String x:Key="LL_W7.00">电池位置超出手臂动作范围</sys:String>
+    <sys:String x:Key="LL_W7.01">视觉系统连接失败</sys:String>
+    <sys:String x:Key="LL_W7.02">手臂目标位置不在安全范围</sys:String>
+    <sys:String x:Key="LL_W7.03">视觉系统判断失败</sys:String>
+    <sys:String x:Key="LL_W7.04">视觉系统获取图像失败</sys:String>
+    <sys:String x:Key="LL_W7.05">视觉系统识别电池失败</sys:String>
+    <sys:String x:Key="LL_W7.06">下料手臂真空异常</sys:String>
+    <sys:String x:Key="LL_W7.07">手臂连接PLC失败</sys:String>
+    <sys:String x:Key="LL_W7.08">电池极耳朝向错误</sys:String>
+    <sys:String x:Key="LL_W7.10">NG料盒状态错误</sys:String>
+    <sys:String x:Key="LL_W7.12">上料手臂真空异常</sys:String>
+    <sys:String x:Key="LL_W7.13">视觉信息异常</sys:String>
+    <sys:String x:Key="LL_W7.14">手臂轴超限位</sys:String>
+    <sys:String x:Key="LL_W7.15">手臂超速</sys:String>
+    <sys:String x:Key="LL_W8.00">手臂分拣信号发送超时</sys:String>
+    <sys:String x:Key="LL_W8.01">安全门2打开</sys:String>
+    <sys:String x:Key="LL_W8.02">安全门3打开</sys:String>
+    <sys:String x:Key="LL_W8.03">安全门4打开</sys:String>
+    <sys:String x:Key="LL_W8.04">安全门5打开</sys:String>
+    <sys:String x:Key="LL_W8.05">安全门6打开</sys:String>
+    <sys:String x:Key="LL_W8.06">安全门7打开</sys:String>
+    <sys:String x:Key="LL_W8.07">安全门8打开</sys:String>
+    <sys:String x:Key="LL_W8.08">主气源压力过低</sys:String>
+    <sys:String x:Key="LL_W8.10">安全门1打开</sys:String>
+    <sys:String x:Key="LL_W8.11">手臂动作时转盘未在安全位置</sys:String>
+    <sys:String x:Key="LL_W8.12">手臂控制器异常</sys:String>
+    <sys:String x:Key="LL_W8.13">提示选择停机原因</sys:String>
+    
+    <!--  Test Code  -->
+    <sys:String x:Key="LL_LastTestTime">上次点检</sys:String>
+    <sys:String x:Key="LL_LastTestUser">上次点检人</sys:String>
+    <sys:String x:Key="LL_TestInterval">点检间隔时间</sys:String>
+    <sys:String x:Key="LL_TestCodeCnt">XRAY连续NG数</sys:String>
+
+    <!--  Recheck  -->
+    <sys:String x:Key="LL_WaitCopyFiles">正在拷贝文件...</sys:String>
+    <sys:String x:Key="LL_Complete">已完成</sys:String>
+    <sys:String x:Key="LL_Handled">已处理数目</sys:String>
+    <sys:String x:Key="LL_UnHandled">未处理数目</sys:String>
+    <sys:String x:Key="LL_FileCopiedTips">文件拷贝完毕，请记得上传数据！</sys:String>
+    <sys:String x:Key="LL_FQAUploadConfirm">个条码上传中...</sys:String>
+    <sys:String x:Key="LL_FQAUploadOKCnt">上传成功数</sys:String>
+    <sys:String x:Key="LL_FQAUploadFailCnt">上传失败数</sys:String>
+
+    <!--  Alarm Analysis  -->
+    <sys:String x:Key="LL_MenuAlarmAna">报警分析</sys:String>
+    <!--  Product Data Analysis  -->
+    <sys:String x:Key="LL_MenuCurDataAna">当日数据统计</sys:String>
+    <sys:String x:Key="LL_Hour">小时</sys:String>
+    <sys:String x:Key="LL_Production">产量</sys:String>
+
+    <!--  算法测试  -->
+    <sys:String x:Key="LL_InspectTestTips">禁止在设备运行状态下使用，结果图片请在设备监控页面查看！</sys:String>
+    <sys:String x:Key="LL_InspectTime">算法耗时</sys:String>
+    <sys:String x:Key="LL_AutoInspectImg">自动选择图片</sys:String>
+    <sys:String x:Key="LL_AutoInspectPath">自动路径</sys:String>
+    <sys:String x:Key="LL_AutoInspectPathTips">约定该路径下仅有4张BMP图片，并以_1,_2,_3,_4结尾，否则无法检测！</sys:String>
+    <sys:String x:Key="LL_ImgPath">图片路径</sys:String>
+    <sys:String x:Key="LL_AlgoTime">算法耗时</sys:String>
+    <sys:String x:Key="LL_AlgoRet">算法返回值</sys:String>
+    <sys:String x:Key="LL_LeftUpImg">左上图片</sys:String>
+    <sys:String x:Key="LL_LeftDownImg">左下图片</sys:String>
+    <sys:String x:Key="LL_RightDownImg">右下图片</sys:String>
+    <sys:String x:Key="LL_RightUpImg">右上图片</sys:String>
+
+    <!--  Mes下发参数  -->
+    <sys:String x:Key="LL_Examine">审核</sys:String>
+    <sys:String x:Key="LL_DownwardState">下发状态</sys:String>
+    <sys:String x:Key="LL_InputParameter">Input参数</sys:String>
+    <sys:String x:Key="LL_ParameterNamesEnglish">参数名(英文)</sys:String>
+    <sys:String x:Key="LL_ParameterNamesChinese">参数名(中文)</sys:String>
+    <sys:String x:Key="LL_MESDownLoadModel">MES下发(Model:)</sys:String>
+
+    <sys:String x:Key="LL_UpperLimitValue">上限值</sys:String>
+    <sys:String x:Key="LL_LowerLimitValue">下限值</sys:String>
+    <sys:String x:Key="LL_RecommendedValues">推荐值</sys:String>
+
+    <sys:String x:Key="LL_ReferenceModelSettings">Model设定值</sys:String>
+    <sys:String x:Key="LL_ReferenceModelUpperLimit">Model上限值</sys:String>
+    <sys:String x:Key="LL_ReferenceModelLowerLimit">Model下限值</sys:String>
+    <sys:String x:Key="LL_ReferenceModelRecommendations">Model推荐值</sys:String>
+
+    <sys:String x:Key="LL_PCCurrentValue">PC当前值</sys:String>
+    <sys:String x:Key="LL_CurrentUpperLimit">当前上限值</sys:String>
+    <sys:String x:Key="LL_CurrentLowerLimit">当前下限值</sys:String>
+    <sys:String x:Key="LL_CurrentSettings">当前设定值</sys:String>
+    <sys:String x:Key="LL_OldSettings">旧设定值</sys:String>
+    <sys:String x:Key="LL_MesParamAcquire">Mes端参数获取</sys:String>
+    <sys:String x:Key="LL_SaveSendToPC">保存并下发到PC</sys:String>
+    
+    <sys:String x:Key="LL_AuditIcon">√</sys:String>
+
+</ResourceDictionary>
+

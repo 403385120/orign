@@ -1,0 +1,509 @@
+﻿<controls:BasePage x:Class="ZYXray.TestStationInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZYXray"
+      xmlns:converters="clr-namespace:ZYXray.Converters"
+      xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      Title="TestStationInfoPage">
+    <controls:BasePage.Resources>
+        <converters:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+        <converters:OnOffStatusToColorConverter x:Key="OnOffStatusToColorConverter" />
+    </controls:BasePage.Resources>
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}" Canvas.Top="116"/>
+
+        <Grid Height="700" Canvas.Left="310" Canvas.Top="200" Width="1200" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Content="测试工位" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30" />
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="1" 
+                Content="条码" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30" />
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="2" 
+                Content="测量值" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30" />
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="5" 
+                Grid.ColumnSpan="3"
+                Content="结果" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="30" />
+
+            <TextBox 
+                Grid.Row="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="扫码"  
+                />
+            <TextBox 
+                Grid.Row="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="XRAY" 
+                />
+            <TextBox 
+                Grid.Row="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="IV" 
+                />
+            <TextBox 
+                Grid.Row="4" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="内阻" 
+                />
+            <TextBox 
+                Grid.Row="5" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="电压" 
+                />
+            <TextBox 
+                Grid.Row="6" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="温度" 
+                />
+            <TextBox 
+                Grid.Row="7" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="测厚" 
+                />
+            <TextBox 
+                Grid.Row="8" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="尺寸测量" 
+                />
+            <TextBox 
+                Grid.Row="9" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="20"
+                IsReadOnly="True"
+                Margin="1,1,1,1"
+                Text="分拣" 
+                />
+
+            <TextBox 
+                x:Name="scan_barcode" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ScanBarCode}"
+                />
+            <TextBox 
+                x:Name="xray_barcode" 
+                Grid.Row="2" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding XRayBarCode}"
+                />
+            <TextBox 
+                x:Name="iv_barcode" 
+                Grid.Row="3" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding IVBarCode}"
+                />
+            <TextBox 
+                x:Name="resi_barcode" 
+                Grid.Row="4" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ResisBarCode}"
+                />
+            <TextBox 
+                x:Name="vol_barcode" 
+                Grid.Row="5" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding VolBarCode}"
+                />
+            <TextBox 
+                x:Name="temp_barcode" 
+                Grid.Row="6" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding TempBarCode}"
+                />
+            <TextBox 
+                x:Name="thick_barcode" 
+                Grid.Row="7" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ThickBarCode}"
+                />
+            <TextBox 
+                x:Name="dime_barcode" 
+                Grid.Row="8" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding DimeBarCode}"
+                />
+            <TextBox 
+                x:Name="sort_barcode" 
+                Grid.Row="9" 
+                Grid.Column="1" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding SortBarCode}"
+                />
+
+            <TextBox 
+                x:Name="scan_value" 
+                Grid.Row="1" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ScanValue}"
+                />
+            <TextBox 
+                x:Name="xray_value" 
+                Grid.Row="2" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding XRayValue}"
+                />
+            <TextBox 
+                x:Name="iv_value" 
+                Grid.Row="3" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding IVValue}"
+                />
+            <TextBox 
+                x:Name="resi_value" 
+                Grid.Row="4" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ResisValue}"
+                />
+            <TextBox 
+                x:Name="vol_value" 
+                Grid.Row="5" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding VolValue}"
+                />
+            <TextBox 
+                x:Name="temp_value" 
+                Grid.Row="6" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding TempValue}"
+                />
+            <TextBox 
+                x:Name="thick_value" 
+                Grid.Row="7" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ThickValue}"
+                />
+            <TextBox 
+                x:Name="dime_value" 
+                Grid.Row="8" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding DimeValue}"
+                />
+            <TextBox 
+                x:Name="sort_value" 
+                Grid.Row="9" 
+                Grid.Column="2" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding SortValue}"
+                />
+
+            <TextBox 
+                x:Name="scan_result" 
+                Grid.Row="1" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ScanResult}"
+                />
+            <TextBox 
+                x:Name="xray_result" 
+                Grid.Row="2" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding XRayResult}"
+                />
+            <TextBox 
+                x:Name="iv_result" 
+                Grid.Row="3" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding IVResult}"
+                />
+            <TextBox 
+                x:Name="resi_result" 
+                Grid.Row="4" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ResisResult}"
+                />
+            <TextBox 
+                x:Name="vol_result" 
+                Grid.Row="5" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding VolResult}"
+                />
+            <TextBox 
+                x:Name="temp_result" 
+                Grid.Row="6" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding TempResult}"
+                />
+            <TextBox 
+                x:Name="thick_result" 
+                Grid.Row="7" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding ThickResult}"
+                />
+            <TextBox 
+                x:Name="dime_result" 
+                Grid.Row="8" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding DimeResult}"
+                />
+            <TextBox 
+                x:Name="sort_result" 
+                Grid.Row="9" 
+                Grid.Column="3" 
+                TextWrapping="Wrap" 
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Margin="1,1,1,1"
+                FontSize="20"
+                IsReadOnly="True"
+                Text="{Binding SortResult}"
+                />
+
+            <!--<Border 
+                BorderBrush="Black" 
+                BorderThickness="2" 
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,0" 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Grid.ColumnSpan="6"
+                Grid.RowSpan="11"
+                VerticalAlignment="Center" 
+                Height="650"
+                Width="1200"
+                />-->
+        </Grid>
+
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="实时工位信息" VerticalAlignment="Center" />
+        </Canvas>
+    </Canvas>
+</controls:BasePage>

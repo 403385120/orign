@@ -1,0 +1,50 @@
+﻿<UserControl 
+      x:Class="ZYXray.DataStressStatePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:converters="clr-namespace:ZYXray.Converters"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+      xmlns:local="clr-namespace:ZYXray"
+      xmlns:views="clr-namespace:ZYXray"
+      Width="1920" Height="1080"
+    d:DataContext="{d:DesignInstance viewModels:DataStressStateVm,
+                                     IsDesignTimeCreatable=True}"
+      DataContext="{Binding}"
+      mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converters:BooleanToOKNGConverter x:Key="BooleanToOKNGConverter" />
+        <converters:BooleanToGreenRedConverter x:Key="BooleanToGreenRedConverter" />
+        <converters:BooleanToRecheckTitleConverter x:Key="BooleanToRecheckTitleConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanInverseConverter x:Key="BooleanInverseConverter" />
+        <converters:IndexDisplayConverter x:Key="IndexDisplayConverter" />
+    </UserControl.Resources>
+    
+    <UserControl.Style>
+        <Style TargetType="{x:Type Control}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+    </UserControl.Style>
+
+    <Grid>
+        <!--  Auth  -->
+        <Grid Background="Black" Opacity=".6">
+            <Grid.Visibility>
+                <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                    <Binding Path="IsAuthVisible" />
+                    <Binding Source="false" />
+                </MultiBinding>
+            </Grid.Visibility>
+            <views:AuthBoxControl x:Name="autoBox" DataContext="{Binding MyAuthBoxVm}" />
+        </Grid>
+        <Label Name="lblWarmMsg" Content="{Binding MessageAndTime}" Foreground="Yellow" FontSize="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="15" Height ="400" Background="Red"/>
+    </Grid>
+</UserControl>

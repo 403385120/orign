@@ -1,0 +1,504 @@
+﻿<UserControl 
+    x:Class="ZYXray.ManualRecheckPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:converters="clr-namespace:ZYXray.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+    xmlns:local="clr-namespace:ZYXray"
+    xmlns:views="clr-namespace:ZYXray"
+    d:DataContext="{d:DesignInstance viewModels:ManualRecheckVm,
+                                     IsDesignTimeCreatable=True}"
+    DataContext="{Binding}"
+    mc:Ignorable="d">
+    
+    <UserControl.Resources>
+        <converters:BooleanToOKNGConverter x:Key="BooleanToOKNGConverter" />
+        <converters:BooleanToGreenRedConverter x:Key="BooleanToGreenRedConverter" />
+        <converters:BooleanToRecheckTitleConverter x:Key="BooleanToRecheckTitleConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanInverseConverter x:Key="BooleanInverseConverter" />
+        <converters:IndexDisplayConverter x:Key="IndexDisplayConverter" />
+    </UserControl.Resources>
+
+    <UserControl.InputBindings>
+        <KeyBinding Key="Left" Command="{Binding Path=NavPrev}" />
+        <KeyBinding Key="Right" Command="{Binding Path=NavNext}" />
+        <KeyBinding
+            Key="Up"
+            Command="{Binding Path=MarkOK}"
+            CommandParameter="true" />
+        <KeyBinding
+            Key="Down"
+            Command="{Binding Path=MarkNG}"
+            CommandParameter="true" />
+    </UserControl.InputBindings>
+
+    <UserControl.Style>
+        <Style TargetType="{x:Type Control}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+    </UserControl.Style>
+
+    <Grid Background="Black">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ScrollViewer
+                x:Name="s1"
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalScrollBarVisibility="Auto"
+                MouseDoubleClick="s1_MouseDoubleClick"
+                VerticalScrollBarVisibility="Auto">
+                <views:ImageControl
+                    Width="{Binding ImageWidth}"
+                    Height="{Binding ImageHeight}"
+                    DataContext="{Binding ImageLeft}" />
+            </ScrollViewer>
+
+            <ScrollViewer
+                x:Name="s2"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalScrollBarVisibility="Auto"
+                MouseDoubleClick="s2_MouseDoubleClick"
+                VerticalScrollBarVisibility="Auto">
+                <views:ImageControl
+                    Width="{Binding ImageWidth}"
+                    Height="{Binding ImageHeight}"
+                    DataContext="{Binding ImageRight}" />
+            </ScrollViewer>
+        </Grid>
+
+        <Grid IsEnabled="{Binding IsBusy, Converter={StaticResource BooleanInverseConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".02*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".02*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".02*" />
+                <RowDefinition Height=".1*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height=".3*" />
+                <RowDefinition Height=".02*" />
+            </Grid.RowDefinitions>
+            <Grid
+                Grid.Row="1"
+                Grid.Column="3"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Rectangle
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="22"
+                    Height="20"
+                    Margin="5,10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Fill="Red">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_arrow_down}" />
+                    </Rectangle.OpacityMask>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <i:InvokeCommandAction Command="{Binding Pause}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Rectangle.ToolTip>
+                        <TextBlock Text="{DynamicResource LL_Minimalize}" />
+                    </Rectangle.ToolTip>
+                </Rectangle>
+                <Rectangle
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Width="22"
+                    Height="20"
+                    Margin="5,10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Fill="Red">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_axis_x_letter}" />
+                    </Rectangle.OpacityMask>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PreviewMouseDown">
+                            <i:InvokeCommandAction Command="{Binding ToggleFullScreen}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Rectangle.ToolTip>
+                        <TextBlock Text="{DynamicResource LL_RecheckSaveTips}" />
+                    </Rectangle.ToolTip>
+                </Rectangle>
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Foreground" Value="Red" />
+                        <Setter Property="FontSize" Value="12" />
+                    </Style>
+                </Grid.Resources>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{Binding MyManualRecheck.MyRecheckStatus.IsRecheckMode, Converter={StaticResource BooleanToRecheckTitleConverter}}" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_ManualCheckTotal}"
+                    ContentStringFormat="{}{0} :" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding MyManualRecheck.MyRecheckStatus.TotalNum}" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_ManualCheckNow}"
+                    ContentStringFormat="{}{0} :" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding MyManualRecheck.MyRecheckStatus.CheckedNum}" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_ManualCheckRemain}"
+                    ContentStringFormat="{}{0} :"/>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding MyManualRecheck.MyRecheckStatus.WaitCheckNum}"
+                    />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_ManualCheckCurIndex}"
+                    ContentStringFormat="{}{0} :" />
+
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="12"
+                    Foreground="Red">
+                    <Run Text="{Binding MyManualRecheck.MyRecheckStatus.CurIndex, Converter={StaticResource IndexDisplayConverter}}" />
+                    <Run Text="-" />
+                    <Run Text="{Binding MyManualRecheck.MyRecheckStatus.SubIndex}" />
+                </TextBlock>
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_BarCode}"
+                    ContentStringFormat="{}{0} :" />
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding MyManualRecheck.MyRecheckStatus.CurBarCode}" />
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="1"
+                        Width="100"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Controls:ButtonHelper.PreserveTextCase="True"
+                        BorderThickness="0"
+                        Command="{Binding WaitCheck}"
+                        Content="{DynamicResource LL_WaitCheck}"
+                        Style="{DynamicResource AccentedSquareButtonStyle}"
+                        CommandParameter="false"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Foreground" Value="WhiteSmoke" />
+                    </Style>
+                </Grid.Resources>
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    BorderThickness="0"
+                    Command="{Binding NavPrev}"
+                    Content="{DynamicResource LL_PrevImage}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    BorderThickness="0"
+                    Command="{Binding NavNext}"
+                    Content="{DynamicResource LL_NextImage}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    Background="#00C853"
+                    BorderThickness="0"
+                    Command="{Binding MarkOK}"
+                    CommandParameter="false"
+                    Content="{DynamicResource LL_ManualCheckOK}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}">
+                    <Button.Visibility>
+                        <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                            <Binding Path="MyManualRecheck.MyRecheckStatus.IsRecheckMode" />
+                            <Binding Source="false" />
+                        </MultiBinding>
+                    </Button.Visibility>
+                </Button>
+
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Run Text="{DynamicResource LL_CurManualResult}" />
+                    <Run Text=": " />
+                    <Run FontSize="24">
+                        <Run.Text>
+                            <MultiBinding Converter="{StaticResource BooleanToOKNGConverter}">
+                                <Binding Path="MyManualRecheck.MyRecheckStatus.CurIndex" />
+                                <Binding Path="MyManualRecheck.MyRecheckStatus.SubIndex" />
+                                <Binding Path="MyManualRecheck.WorkRecords" />
+                            </MultiBinding>
+                        </Run.Text>
+                        <Run.Foreground>
+                            <MultiBinding Converter="{StaticResource BooleanToGreenRedConverter}">
+                                <Binding Path="MyManualRecheck.MyRecheckStatus.CurIndex" />
+                                <Binding Path="MyManualRecheck.MyRecheckStatus.SubIndex" />
+                                <Binding Path="MyManualRecheck.WorkRecords" />
+                            </MultiBinding>
+                        </Run.Foreground>
+                    </Run>
+                </TextBlock>
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    Background="#F50057"
+                    BorderThickness="0"
+                    Command="{Binding MarkNG}"
+                    CommandParameter="false"
+                    Content="{DynamicResource LL_ManualCheckNG}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}" />
+            </Grid>
+
+            <Grid Grid.Row="3" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    Background="#00C853"
+                    BorderThickness="0"
+                    Command="{Binding FQASubmit}"
+                    Content="{DynamicResource LL_FQASubmitResult}"
+                    Opacity=".5"
+                    Style="{DynamicResource AccentedSquareButtonStyle}">
+                    <Button.Visibility>
+                        <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                            <Binding Path="MyManualRecheck.MyRecheckStatus.IsRecheckMode" />
+                            <Binding Source="true" />
+                        </MultiBinding>
+                    </Button.Visibility>
+                </Button>
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    Background="#FFAB00"
+                    BorderThickness="0"
+                    Command="{Binding Submit}"
+                    Content="{DynamicResource LL_SubmitResult}"
+                    Opacity=".5"
+                    Style="{DynamicResource AccentedSquareButtonStyle}">
+                    <Button.Visibility>
+                        <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                            <Binding Path="MyManualRecheck.MyRecheckStatus.IsRecheckMode" />
+                            <Binding Source="false" />
+                        </MultiBinding>
+                    </Button.Visibility>
+                </Button>
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    Background="#FFAB00"
+                    BorderThickness="0"
+                    Command="{Binding FQAUpload}"
+                    Content="{DynamicResource LL_FQAUpload}"
+                    Opacity=".5"
+                    Style="{DynamicResource AccentedSquareButtonStyle}">
+                    <Button.Visibility>
+                        <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                            <Binding Path="MyManualRecheck.MyRecheckStatus.IsRecheckMode" />
+                            <Binding Source="true" />
+                        </MultiBinding>
+                    </Button.Visibility>
+                </Button>
+            </Grid>
+
+        </Grid>
+        
+        <!--  Auth  -->
+        <Grid Background="Black" Opacity=".7">
+            <Grid.Visibility>
+                <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                    <Binding Path="IsAuthVisible" />
+                    <Binding Source="false" />
+                </MultiBinding>
+            </Grid.Visibility>
+            <views:AuthBoxControl x:Name="autoBox" DataContext="{Binding MyAuthBoxVm}" />
+        </Grid>
+
+        <!--  Busy  -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Controls:ProgressRing
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="100"
+                Height="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Controls:ProgressRing.Visibility>
+                    <MultiBinding Converter="{StaticResource BooleanToVisibilityConverter}">
+                        <Binding Path="IsBusy" />
+                        <Binding Source="false" />
+                    </MultiBinding>
+                </Controls:ProgressRing.Visibility>
+            </Controls:ProgressRing>
+        </Grid>
+    </Grid>
+</UserControl>

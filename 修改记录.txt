@@ -1,0 +1,7 @@
+20201014:
+修复ATL.Engine里的BUG，以前的版本，上位机建立PLC连接失败后，可能会建立PLC通信线程，多次尝试建立PLC连接，则多次建立通信线程。
+修复ATL.Engine里的BUG，以前的版本，PLC里读取的字符串包含了回车换行符的情况下，上位机未去除回车换行符。
+修改ATL.PLCVariableValueService和ATL.MES2里的代码，因为需要A019接口上传给MES的是安东数值，而不是代码了。
+修改ATL.UI里的登录界面的登录逻辑，MES返回为空的时候启用本地登录
+deivce_equipmentid_plc表里新增LampStateAddress字段
+新增了A091-A097接口

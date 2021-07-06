@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83DF75AA-DEA3-460D-9CAB-C1459FF863AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZY.Vision</RootNamespace>
+    <AssemblyName>ZY.Vision</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;VAREX</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\ZY.Vision.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="bgapi2_genicam_dotnet">
+      <HintPath>..\CameraLib\Baumer\bgapi2_genicam_dotnet.dll</HintPath>
+    </Reference>
+    <Reference Include="BitMiracle.LibTiff.NET">
+      <HintPath>..\CameraLib\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="BusScanner_NET">
+      <HintPath>..\CameraLib\BusScanner_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DexDefs_NET">
+      <HintPath>..\CameraLib\DexDefs_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DexelaDetector_NET">
+      <HintPath>..\CameraLib\DexelaDetector_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DexelaException_NET">
+      <HintPath>..\CameraLib\DexelaException_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DexImage_NET">
+      <HintPath>..\CameraLib\DexImage_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithm\ImageProcess.cs" />
+    <Compile Include="Algorithm\ImageTransfor.cs" />
+    <Compile Include="Algorithm\Short2Byte.cs" />
+    <Compile Include="Baumer\BaumerCallBack.cs" />
+    <Compile Include="Baumer\BaumerWrapper.cs" />
+    <Compile Include="Baumer\CameraDevice.cs" />
+    <Compile Include="Consts.cs" />
+    <Compile Include="Exceptions\CameraNotFoundException.cs" />
+    <Compile Include="Exceptions\ConfigException.cs" />
+    <Compile Include="Interfaces\ICameraDevice.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Share.cs" />
+    <Compile Include="Utils\CaptureResult.cs" />
+    <Compile Include="Utils\PointerRelease.cs" />
+    <Compile Include="Varex\CameraCorrectHelper.cs" />
+    <Compile Include="Varex\CameraDevice.cs" />
+    <Compile Include="Varex\CameraParameter.cs" />
+    <Compile Include="Varex\DexelaDetector.cs" />
+    <Compile Include="CameraHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZY.Logging\ZY.Logging.csproj">
+      <Project>{e8a9c5f6-8662-4219-9250-a2c7f803d7fc}</Project>
+      <Name>ZY.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HarewareConfig.ini" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

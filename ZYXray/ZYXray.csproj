@@ -1,0 +1,952 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91662D77-8FA5-4C74-8876-03EBC5504396}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZYXray</RootNamespace>
+    <AssemblyName>ZYXray</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\PTF UI\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\PTF UI\Debug\devexpress\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Common">
+      <HintPath>..\PTF UI\Debug\ATL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Core">
+      <HintPath>..\PTF UI\Debug\ATL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Engine, Version=1.0.7572.18628, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.MES">
+      <HintPath>..\PTF UI\Debug\ATL.MES.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Station">
+      <HintPath>..\PTF UI\Debug\ATL.Station.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI">
+      <HintPath>..\PTF UI\Debug\ATL.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI.Controls">
+      <HintPath>..\PTF UI\Debug\ATL.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI.Core, Version=2020.11.20.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.UI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoLineInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\AutoLineInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="CIPCompolet">
+      <HintPath>..\PTF UI\Debug\devexpress\CIPCompolet.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\PTF UI\Debug\devexpress\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Esquel.BaseManager">
+      <HintPath>..\PTF UI\Debug\devexpress\Esquel.BaseManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Esquel.ExcelHelper">
+      <HintPath>..\PTF UI\Debug\devexpress\Esquel.ExcelHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Esquel.WebApiService">
+      <HintPath>..\PTF UI\Debug\devexpress\Esquel.WebApiService.dll</HintPath>
+    </Reference>
+    <Reference Include="Esquel.WebBlock">
+      <HintPath>..\PTF UI\Debug\devexpress\Esquel.WebBlock.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication, Version=9.2.6.0, Culture=neutral, PublicKeyToken=cdb2261fa039ed67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\devexpress\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Instrument, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Instrument.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivi.Visa, Version=5.8.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Ivi.Visa.dll</HintPath>
+    </Reference>
+    <Reference Include="Ivi.Visa.Interop, Version=5.9.0.0, Culture=neutral, PublicKeyToken=a128c98f1d7717c1, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\PTF UI\Debug\Ivi.Visa.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Keysight.Visa, Version=18.1.0.0, Culture=neutral, PublicKeyToken=7a01cdb2a9131f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Keysight.Visa.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\devexpress\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.5.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\devexpress\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\PTF UI\Debug\devexpress\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\PTF UI\Debug\devexpress\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\PTF UI\Debug\devexpress\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Permission.Model">
+      <HintPath>..\PTF UI\Debug\devexpress\Permission.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="Shuyz.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Shuyz.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperCom.DataCommunication">
+      <HintPath>..\PTF UI\Debug\devexpress\SuperCom.DataCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TwinCAT.Ads, Version=4.1.31.0, Culture=neutral, PublicKeyToken=180016cd49e5e8c3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\devexpress\TwinCAT.Ads.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WinformUserControlTest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\WinformUserControlTest.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="XRayClient.BatteryCheckManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\XRayClient.BatteryCheckManager.dll</HintPath>
+    </Reference>
+    <Reference Include="XRayClient.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\XRayClient.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XRayClient.DeviceController, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\XRayClient.DeviceController.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.BarCodeReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.BarCodeReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.BLL">
+      <HintPath>..\ZY.BLL\bin\Debug\ZY.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.DAL">
+      <HintPath>..\ZY.DAL\bin\Debug\ZY.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.MitutoyoReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.MitutoyoReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.Model">
+      <HintPath>..\ZY.Model\bin\Debug\ZY.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.Motion, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.Motion.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.SerialDevice, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.SerialDevice.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.Systems">
+      <HintPath>..\ZY.Systems\bin\Debug\ZY.Systems.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.XRayTube, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ZY.XRayTube.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bis.cs" />
+    <Compile Include="ChannelCheckPage.xaml.cs">
+      <DependentUpon>ChannelCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Check.cs" />
+    <Compile Include="DataStressStatePage.xaml.cs">
+      <DependentUpon>DataStressStatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewCommunication.xaml.cs">
+      <DependentUpon>DataViewCommunication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewRecheck.xaml.cs">
+      <DependentUpon>DataViewRecheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataViewSetting.xaml.cs">
+      <DependentUpon>DataViewSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IVOCVParamsSettingsPage.xaml.cs">
+      <DependentUpon>IVOCVParamsSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MDIPPGParamsSettingsPage.xaml.cs">
+      <DependentUpon>MDIPPGParamsSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lang\Models\TimeOutClass.cs" />
+    <Compile Include="MDIPPGParamsSettingsPage1.xaml.cs">
+      <DependentUpon>MDIPPGParamsSettingsPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JsonObject.cs" />
+    <Compile Include="ReModelPage.xaml.cs">
+      <DependentUpon>ReModelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetMarking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetMarking.designer.cs">
+      <DependentUpon>SetMarking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataStressPage.xaml.cs">
+      <DependentUpon>DataStressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ChannelCheckVm.cs" />
+    <Compile Include="Converters\BooleanInverseConverter.cs" />
+    <Compile Include="Converters\BooleanToBrushConverter.cs" />
+    <Compile Include="Converters\BooleanToGreenRedConverter.cs" />
+    <Compile Include="Converters\BooleanToOKNGConverter.cs" />
+    <Compile Include="Converters\BooleanToPLCConnectionConverter.cs" />
+    <Compile Include="Converters\BooleanToRecheckTitleConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Converters\EnumToStringConverter.cs" />
+    <Compile Include="Converters\IndexDisplayConverter.cs" />
+    <Compile Include="Converters\NullToDefaultConverter.cs" />
+    <Compile Include="Converters\OnOffStatusToColorConverter.cs" />
+    <Compile Include="Converters\PagedListItemsConverter.cs" />
+    <Compile Include="Converters\PagedListPageNumConverter.cs" />
+    <Compile Include="Converters\ParamsListMergeConverter.cs" />
+    <Compile Include="Converters\RunningStatusToAvailConverter.cs" />
+    <Compile Include="Converters\XRayConnectionToImageConverter.cs" />
+    <Compile Include="DataViewPage.xaml.cs">
+      <DependentUpon>DataViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Lang\LangHelper.cs" />
+    <Compile Include="LoginInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginInterface.Designer.cs">
+      <DependentUpon>LoginInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lang\Models\CncButton.cs" />
+    <Compile Include="Lang\Models\DimensionCheckData.cs" />
+    <Compile Include="Lang\Models\HardwareConfig.cs" />
+    <Compile Include="Lang\Models\MotionConfig.cs" />
+    <Compile Include="Lang\Models\PlcSignalState.cs" />
+    <Compile Include="Lang\Models\RadioButtonValue.cs" />
+    <Compile Include="Lang\Models\SystemConfig.cs" />
+    <Compile Include="Lang\Models\ThicknessCheckData.cs" />
+    <Compile Include="Lang\Models\WinAP1.cs" />
+    <Compile Include="TestCodesPage.xaml.cs">
+      <DependentUpon>TestCodesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestStationInfoPage.xaml.cs">
+      <DependentUpon>TestStationInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThicknessCheckPage.xaml.cs">
+      <DependentUpon>ThicknessCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\EActiveWindows.cs" />
+    <Compile Include="Utils\ECalibrationBlockModel .cs" />
+    <Compile Include="Utils\EThicknessStation.cs" />
+    <Compile Include="Utils\FullScreenToggleHandler.cs" />
+    <Compile Include="Utils\WindowController.cs" />
+    <Compile Include="Utils\WindowHelper.cs" />
+    <Compile Include="ViewModels\AuthBoxVm.cs" />
+    <Compile Include="ViewModels\CameraSetingsVm.cs" />
+    <Compile Include="ViewModels\CheckParamsSettingsVm.cs" />
+    <Compile Include="ViewModels\DashBoardVm.cs" />
+    <Compile Include="ViewModels\DataStressStateVm.cs" />
+    <Compile Include="ViewModels\EDashBoardActiveLayers.cs" />
+    <Compile Include="ViewModels\ImageControlVm.cs" />
+    <Compile Include="ViewModels\InspectTestPageVm.cs" />
+    <Compile Include="ViewModels\IVSeriesCheck.cs" />
+    <Compile Include="ViewModels\MainWindowVm.cs" />
+    <Compile Include="ViewModels\MakeUp.cs" />
+    <Compile Include="ViewModels\ManualRecheckVm.cs" />
+    <Compile Include="ViewModels\MotionControlVm.cs" />
+    <Compile Include="ViewModels\ReModelVm.cs" />
+    <Compile Include="ViewModels\TestCodesVm.cs" />
+    <Compile Include="ViewModels\TestStationInfoVm.cs" />
+    <Compile Include="Winform\frmAtlLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\frmAtlLogin.Designer.cs">
+      <DependentUpon>frmAtlLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\frmCommunication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\frmCommunication.Designer.cs">
+      <DependentUpon>frmCommunication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\frmProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\frmProductType.Designer.cs">
+      <DependentUpon>frmProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\frmRecheckImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\frmRecheckImage.Designer.cs">
+      <DependentUpon>frmRecheckImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XrayCheckPage.xaml.cs">
+      <DependentUpon>XrayCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XrayTubeControlPage.xaml.cs">
+      <DependentUpon>XrayTubeControlPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AuthBoxControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CameraCaliPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CameraSettingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChannelCheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataStressStatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataViewCommunication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataViewRecheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataViewSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IVOCVParamsSettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MDIPPGParamsSettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CheckParamsSettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DashBoardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataViewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DimensionCheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ImageControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InspectTestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Lang\zh-CN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ManualRecheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MDIPPGParamsSettingsPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MotionControlPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PromptWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReModelPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Dictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\en-US.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\zh-CN-ZY.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\zh-CN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataStressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestCodesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TestStationInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThicknessCheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XrayCheckPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="XrayTubeControlPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthBoxControl.xaml.cs">
+      <DependentUpon>AuthBoxControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CameraCaliPage.xaml.cs">
+      <DependentUpon>CameraCaliPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CameraSettingPage.xaml.cs">
+      <DependentUpon>CameraSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CheckParamsSettingsPage.xaml.cs">
+      <DependentUpon>CheckParamsSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoardPage.xaml.cs">
+      <DependentUpon>DashBoardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DimensionCheckPage.xaml.cs">
+      <DependentUpon>DimensionCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ImageControl.xaml.cs">
+      <DependentUpon>ImageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InspectTestPage.xaml.cs">
+      <DependentUpon>InspectTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ManualRecheckPage.xaml.cs">
+      <DependentUpon>ManualRecheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModVariable.cs" />
+    <Compile Include="MotionControlPage.xaml.cs">
+      <DependentUpon>MotionControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MotionEnum.cs" />
+    <Compile Include="PromptWindow.xaml.cs">
+      <DependentUpon>PromptWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginInterface.resx">
+      <DependentUpon>LoginInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetMarking.resx">
+      <DependentUpon>SetMarking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\frmAtlLogin.resx">
+      <DependentUpon>frmAtlLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\frmCommunication.resx">
+      <DependentUpon>frmCommunication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\frmProductType.resx">
+      <DependentUpon>frmProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MES.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CameraLib\ZY.Vision.csproj">
+      <Project>{83df75aa-dea3-460d-9cab-c1459ff863aa}</Project>
+      <Name>ZY.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRayClient.VisionSysWrapper\XRayClient.VisionSysWrapper.csproj">
+      <Project>{d375ac35-5f11-4016-8ad9-6181fb0d8709}</Project>
+      <Name>XRayClient.VisionSysWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\00.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\alarm_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\btncraftdetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_log_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_switch_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\datacapacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\deviceControl_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\equipprobably.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\lower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Image14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\jumpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_child_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MES.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\mes_ng.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\mes_ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\Battery_Model.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\down.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\equipprobably.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\left.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\right.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\panel_bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_no.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_on.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\production.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\right_panel_border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\standby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_abnormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\daytime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\good.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\pgk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\time_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Xray_circle_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Xray_circle_on.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

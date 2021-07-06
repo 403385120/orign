@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ZY.Vision</name>
+    </assembly>
+    <members>
+        <member name="T:ZY.Vision.Algorithm.ImageProcess">
+            <summary>
+            对图像进行加工处理，如多帧平均、转8位图等
+            ZhangKF 2020-12-28
+            </summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageProcess.Average(System.Drawing.Bitmap[])">
+            <summary>对多张位图进行多帧平均运算(仅限处理16位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageProcess.Average8(System.Drawing.Bitmap[])">
+            <summary>对多张位图进行多帧平均运算(仅限处理8位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageProcess.AverageBytes(System.Collections.Generic.List{System.Byte[]},System.Int32,System.Int32)">
+            <summary>字节平均算法(仅针对8位图)</summary>
+        </member>
+        <member name="T:ZY.Vision.Algorithm.ImageTransfor">
+            <summary>
+            传给算法结构体交换对象,延用旧版ImageStruct对象
+            ZhangKF 2020-12-24
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.ImageTransfor.data">
+            <summary>图像数据(指针)</summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.ImageTransfor.width">
+            <summary>图像宽度</summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.ImageTransfor.height">
+            <summary>图像高度</summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.ImageTransfor.channel">
+            <summary>图像层数</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageTransfor.Clone">
+            <summary>克隆当前对象(仅限8位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageTransfor.Save(System.String,ZY.Vision.Consts.ImageTypes)">
+            <summary>保存图片(16位图时保存为TIF格式)</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.ImageTransfor.Destory">
+            <summary>手动释放内存</summary>
+        </member>
+        <member name="T:ZY.Vision.Algorithm.Short2Byte">
+            <summary>
+            16位图转8位图
+            ZhangKF 2020-12-28
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.Short2Byte._color_tables">
+            <summary>16位颜色与8位颜色的对照表</summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.Short2Byte._COLOR_MIN">
+            <summary>16位颜色阀值,超过最大阀值将赋最大值</summary>
+        </member>
+        <member name="F:ZY.Vision.Algorithm.Short2Byte._bitmap">
+            <summary>当前待处理的位图</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.Short2Byte.InitColorTables">
+            <summary>初始化颜色对照表</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.Short2Byte.ToByteImage">
+            <summary>从16位图获取8位图</summary>
+        </member>
+        <member name="M:ZY.Vision.Algorithm.Short2Byte.ToBytes">
+            <summary>获取8位图像的字节数组</summary>
+        </member>
+        <member name="T:ZY.Vision.Baumer.BaumerCallBack">
+            <summary>
+            封闭相机回调功能
+            ZhangKF 2021-1-19
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Baumer.BaumerCallBack._device">
+            <summary>相机设备</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerCallBack.Stop">
+            <summary>停止回调</summary>
+        </member>
+        <member name="T:ZY.Vision.Baumer.BaumerWrapper">
+            <summary>
+            对宝盟相机功能的封装
+            ZhangKF 2021-1-13
+            </summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.GetSystemList">
+            <summary>获取可用的相机系统</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.GetInterfaceList">
+            <summary>获取可用的相机接口</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.GetDevices">
+            <summary>获取可用的相机设备</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.CaptureImage(BGAPI2.Device)">
+            <summary>调用设备拍一张图</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.CaptureBytes(BGAPI2.Device)">
+            <summary>采一张图并以字节的形式返回</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.CaptureBytes3(BGAPI2.Device,System.Int32)">
+            <summary>采集多张图以字节的形式返回(frame-采图张数)</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.CaptureBytes2(BGAPI2.Device,System.Int32)">
+            <summary>利用回调模式采集多张图(frame-采图张数)</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.BaumerWrapper.Destroy">
+            <summary>释放相机</summary>
+        </member>
+        <member name="T:ZY.Vision.Baumer.CameraDevice">
+            <summary>
+            对宝盟相机设备的封装
+            ZhangKF 2021-1-13
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Baumer.CameraDevice._device">
+            <summary>宝盟相机设备</summary>
+        </member>
+        <member name="F:ZY.Vision.Baumer.CameraDevice._callBack">
+            <summary>回调对象</summary>
+        </member>
+        <member name="P:ZY.Vision.Baumer.CameraDevice.CameraParam">
+            <summary>相机参数</summary>
+        </member>
+        <member name="P:ZY.Vision.Baumer.CameraDevice.CameraIndex">
+            <summary>相机索引号,有效值(1/2)</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.CameraDevice.#ctor(ZY.Vision.Varex.CameraParameter,BGAPI2.Device,System.Int32)">
+            <summary>构造函数,cameraIndex 相机索引(可选值 1 - 一号相机 ２ - 二号相机)</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.CameraDevice.CaptureOneImage(System.Int32)">
+            <summary>拍照并返回相片对象,frame - 拍照次数</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.CameraDevice.CaptureOneImage">
+            <summary>拍照并返回相片对象</summary>
+        </member>
+        <member name="M:ZY.Vision.Baumer.CameraDevice.CloseCamera">
+            <summary>手动关闭相机</summary>
+        </member>
+        <member name="T:ZY.Vision.Consts">
+            <summary>
+            常量
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.DARK_CORRECTION_FILE_INPUT">
+            <summary>相机自动暗校准输入文件</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.DARK_CORRECTION_FILE_OUTPUT">
+            <summary>相机自动暗校准输出文件</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.FLOOD_CORRECTION_FILE_INPUT">
+            <summary>相机亮度校准文件</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.FLOOD_CORRECTION_FILE_OUTPUT">
+            <summary>相机亮度校准输出文件</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.DEFECT_MAP_FILE_INPUT">
+            <summary>坏线校准文件</summary>
+        </member>
+        <member name="T:ZY.Vision.Consts.ImageTypes">
+            <summary>图像类型</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.ImageTypes.Eight">
+            <summary>8位图</summary>
+        </member>
+        <member name="F:ZY.Vision.Consts.ImageTypes.Sixteen">
+            <summary>16位图</summary>
+        </member>
+        <member name="T:ZY.Vision.Exceptions.CameraNotFoundException">
+            <summary>
+            未找到连接到设备的相机
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="T:ZY.Vision.Exceptions.ConfigException">
+            <summary>
+            配置不正确异常
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="T:ZY.Vision.Interfaces.ICameraDevice">
+            <summary>
+            通用相机接口，让系统可以兼容不同的相机
+            ZhangKF 2021-1-13
+            </summary>
+        </member>
+        <member name="P:ZY.Vision.Interfaces.ICameraDevice.CameraParam">
+            <summary>相机参数</summary>
+        </member>
+        <member name="M:ZY.Vision.Interfaces.ICameraDevice.CaptureOneImage(System.Int32)">
+            <summary>多帧拍照,frame拍照次数</summary>
+        </member>
+        <member name="M:ZY.Vision.Interfaces.ICameraDevice.CaptureOneImageAndTIF(System.Int32,System.Drawing.Bitmap@)">
+            <summary>拍照并返回相片对象,frame - 拍照次数, 可以返回TIF图 2021-3-9 ZhangKF</summary>
+        </member>
+        <member name="M:ZY.Vision.Interfaces.ICameraDevice.CaptureOneImage">
+            <summary>单帧或根据相机参数进行拍照</summary>
+        </member>
+        <member name="M:ZY.Vision.Interfaces.ICameraDevice.CloseCamera">
+            <summary>关闭相机</summary>
+        </member>
+        <member name="T:ZY.Vision.Share">
+            <summary>
+            公共静态方法
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="M:ZY.Vision.Share.Error(System.String)">
+            <summary>记录错误日志</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.LogLevel">
+            <summary>日志记录等级</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.Info(System.String)">
+            <summary>记录调试信息</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.ToBytes_16(System.Drawing.Bitmap)">
+            <summary>将图片对象Bitmap转换成字节数组(16位字节)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.ToBytes_8(System.Drawing.Bitmap)">
+            <summary>将图片对象Bitmay转换成字节数组(8位字节)(支持16位和8位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.GetIntPtr``1(``0[])">
+            <summary>数组转换成指针(必须手动释放内存)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.Rotate(System.Drawing.Bitmap)">
+            <summary>对图像作顺时针90度旋转(仅限16位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.Rotate2(System.Drawing.Bitmap)">
+            <summary>对图像作顺时针90度旋转(仅限16位图) 速度优化版本</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.SaveToBMP(System.Drawing.Bitmap,System.String)">
+            <summary>保存Bitmap至位图格式(支持16位或8位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.SaveToTIF(System.Drawing.Bitmap,System.String)">
+            <summary>保存Bitmap至TIF格式(16位图格式)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.SaveToJPG(System.Drawing.Bitmap,System.String)">
+            <summary>将位图保存为JPEG格式文件(降为8位)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.ToTransfor_(System.Drawing.Bitmap)">
+            <summary>将图片转换为C++交换对象</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.ToTransfor(System.Drawing.Bitmap)">
+            <summary>将图片转换为C++交换对象(传递电芯序号)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.ToTransfor(System.Drawing.Bitmap,ZY.Vision.Consts.ImageTypes)">
+            <summary>将图片转换为C++交换对象(传递电芯序号 16位图)</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.Channel(System.Drawing.Bitmap)">
+            <summary>获取图像的通道数</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.CopyToArray``1(System.IntPtr,``0[],System.Int32,System.Int32)">
+            <summary>复制非托管内存数据到托管对象(指针 -> 数组),length-字节长度</summary>
+        </member>
+        <member name="M:ZY.Vision.Share.CopyFromArray``1(``0[],System.Int32,System.IntPtr,System.Int32)">
+            <summary>复制托管对象到内存数据(数组 -> 指针),length-字节长度</summary>
+        </member>
+        <member name="T:ZY.Vision.Utils.CaptureResult">
+            <summary>
+            相机拍照结果，只是对Bitmap包装，方便与其它程序对接
+            ZhangKF 2020-12-30
+            </summary>
+        </member>
+        <member name="P:ZY.Vision.Utils.CaptureResult.Bitmap">
+            <summary>拍照结果图像</summary>
+        </member>
+        <member name="P:ZY.Vision.Utils.CaptureResult.TIFImage">
+            <summary>针对八位图同时获取对应的TIF原图 ZhangKF 2021-3-9</summary>
+        </member>
+        <member name="P:ZY.Vision.Utils.CaptureResult.Result">
+            <summary>拍照结果：true-成功/false-失败</summary>
+        </member>
+        <member name="P:ZY.Vision.Utils.CaptureResult.ErrorMessage">
+            <summary>拍照异常消息</summary>
+        </member>
+        <member name="T:ZY.Vision.Varex.CameraCorrectHelper">
+            <summary>
+            相机校准帮助类
+            ZhangKF 2022-12-22
+            </summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraCorrectHelper.Correct(System.Int32)">
+            <summary>
+            相机校准
+            </summary>
+            <param name="cameraIndex">相机的序列号，不同的相机从不同的文件夹读取校准文件（1 - 一号相机 2 - 二号相机）</param>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraCorrectHelper.CheckFileExist(System.String)">
+            <summary>检查校准文件存在</summary>
+        </member>
+        <member name="T:ZY.Vision.Varex.CameraDevice">
+            <summary>
+            相机设备
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraDevice._varex_camera_device_info">
+            <summary>瓦里安相机设备信息</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraDevice._detector">
+            <summary>设备访问对象</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraDevice.CameraParam">
+            <summary>相机参数</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraDevice.#ctor(DexelaDefs.DevInfo_NET,ZY.Vision.Varex.CameraParameter,System.Int32)">
+            <summary>构造函数,cameraIndex 相机索引(可选值 1 - 一号相机 ２ - 二号相机)</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraDevice.CaptureOneImage(System.Int32)">
+            <summary>拍照并返回相片对象,frame - 拍照次数</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraDevice.CaptureOneImageAndTIF(System.Int32,System.Drawing.Bitmap@)">
+            <summary>拍照并返回相片对象,frame - 拍照次数, 可以返回TIF图 2021-3-9 ZhangKF</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraDevice.CaptureOneImage">
+            <summary>拍照并返回相片对象</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraDevice.CloseCamera">
+            <summary>手动关闭相机</summary>
+        </member>
+        <member name="T:ZY.Vision.Varex.CameraParameter">
+            <summary>
+            初始化相机的参数，如图片尺寸、相机类型， 用于与校准文件一起对相要进行校准
+            此类从VisionSysWrapper移置过来
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter._configFile">
+            <summary>配置文件</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.camType">
+            <summary>相机类型(厂家)(暂定0为堡盟相机)</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.PinValue">
+            <summary>相机的平均滤波系数</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.SzBufSeriNum">
+            <summary>相机的序列号</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.pixelRatio">
+            <summary>像素比</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.pixelRatio2">
+            <summary>像素比2</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.gain">
+            <summary>曝光时间</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.min_graylevel">
+            <summary>最小灰度值</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.max_graylevel">
+            <summary>最大灰度值</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.xFlip">
+            <summary>X方向偏转</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.CameraParameter.yFlip">
+            <summary>Y方向偏转</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraParameter.ImageWidth">
+            <summary>拍照相片宽度</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraParameter.ImageHeight">
+            <summary>拍照相片度度</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraParameter.ExposeTime">
+            <summary>曝光时间</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraParameter.#ctor(System.Int32)">
+            <summary>构造函数：赋初值</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraParameter.CaptureMode">
+            <summary>相机拍照模式（High/Low）</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.CameraParameter.CaptrueFrame">
+            <summary>相机拍照层数</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.CameraParameter.ReadConfig(System.String)">
+            <summary>从配置文件hardwareConfig.ini获取相机配置，section取值（Camera1Config/Camera2Config）</summary>
+        </member>
+        <member name="T:ZY.Vision.Varex.DexelaDetector">
+            <summary>
+            平板相机访问对象，也是对瓦里安平板探测器的装
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.DexelaDetector._detector">
+            <summary>瓦力安平板原始对象</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.DexelaDetector._image">
+            <summary>相机图像(全局为载入校正文件)</summary>
+        </member>
+        <member name="F:ZY.Vision.Varex.DexelaDetector._DefectCheckEnable">
+            <summary> 是否进行相机坏线校准</summary>
+        </member>
+        <member name="P:ZY.Vision.Varex.DexelaDetector.CameraIndex">
+            <summary>相机索引</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.DexelaDetector.#ctor(DexelaDefs.DevInfo_NET,DexelaDefs.FullWellModes_NET,System.Single,System.Int32)">
+            <summary>构造函数,cameraIndex 相机索引(范围1或2)</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.DexelaDetector.CloseCamera">
+            <summary>手动关闭相机</summary>
+        </member>
+        <member name="M:ZY.Vision.Varex.DexelaDetector.CaptureImage(System.Int32,System.Int32,System.Int32)">
+            <summary>调用设备拍照</summary>
+        </member>
+        <member name="T:ZY.Vision.CameraHelper">
+            <summary>
+            对万睿视（瓦里安）平板的封装访问
+            ZhangKF 2020-12-22
+            </summary>
+        </member>
+        <member name="P:ZY.Vision.CameraHelper.Devices">
+            <summary>可使用相机设置</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.Init">
+            <summary>相机初始化，包括查询可用相机、相机校准</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.FindCameraDevice">
+            <summary>搜索可用相机</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.CaptureOneImage(ZY.Vision.Interfaces.ICameraDevice,System.Int32)">
+            <summary>利用指定的设备拍取一张图 frame 拍照帧数</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.CaptureOneImage(ZY.Vision.Interfaces.ICameraDevice)">
+            <summary>利用指定的设备拍取一张图</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.CaptureOneImage(System.Int32)">
+            <summary>利用指定的设备拍取一张图(重载)</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.CaptrueOneImageFrame(System.Int32,System.Int32)">
+            <summary>利用指定的设备拍取一张图(重载)，frame 拍照帧数</summary>
+        </member>
+        <member name="M:ZY.Vision.CameraHelper.CloseCamera(ZY.Vision.Interfaces.ICameraDevice)">
+            <summary>手动关闭相机</summary>
+        </member>
+    </members>
+</doc>

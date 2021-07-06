@@ -1,0 +1,80 @@
+﻿<Page x:Class="ZYXray.DataViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZYXray"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="DataViewPage">
+
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}" Canvas.Top="95"/>
+        <Grid Canvas.Left="314" Canvas.Top="200" Width="1208" Height="620">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListView x:Name="listView" Background="DodgerBlue" BorderBrush="Aquamarine" BorderThickness="3">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <!--<Style TargetType="{x:Type GridViewColumn}">-->
+                        <Setter Property="FontSize" Value="13"/>
+                        <Setter Property="BorderBrush">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="LightBlue" Offset="0.5"/>
+                                    <GradientStop Color="LightBlue" Offset="1"/>
+
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="BorderThickness" Value="0,0,0,0.4"/>
+                        <Setter Property="Height" Value="35"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="Auto" Header="条码" DisplayMemberBinding="{Binding Sn}"/>
+                        <GridViewColumn Width="Auto" Header="时间" DisplayMemberBinding="{Binding EndTime}"/>
+                        <GridViewColumn Width="Auto" Header="IV" DisplayMemberBinding="{Binding IvData}"/>
+                        <GridViewColumn Width="Auto" Header="IV工位" DisplayMemberBinding="{Binding IVChannel}"/>
+                        <GridViewColumn Width="Auto" Header="IV结果" DisplayMemberBinding="{Binding IVResult}"/>
+                        <GridViewColumn Width="Auto" Header="电压" DisplayMemberBinding="{Binding Voltage}"/>
+                        <GridViewColumn Width="Auto" Header="内阻" DisplayMemberBinding="{Binding Resistance}"/>
+                        <GridViewColumn Width="Auto" Header="电池温度" DisplayMemberBinding="{Binding Temperature}"/>
+                        <GridViewColumn Width="Auto" Header="环境温度" DisplayMemberBinding="{Binding EnvirementTemperature}"/>
+                        <GridViewColumn Width="Auto" Header="OCV工位" DisplayMemberBinding="{Binding OCVChannel}"/>
+                        <GridViewColumn Width="Auto" Header="OCV结果" DisplayMemberBinding="{Binding OCVResult}"/>
+                        <GridViewColumn Width="Auto" Header="总长度" DisplayMemberBinding="{Binding AllBatLength}"/>
+                        <GridViewColumn Width="Auto" Header="主体长度" DisplayMemberBinding="{Binding BatLength}"/>
+                        <GridViewColumn Width="Auto" Header="主体宽度" DisplayMemberBinding="{Binding BatWidth}"/>
+                        <GridViewColumn Width="Auto" Header="左极耳边距" DisplayMemberBinding="{Binding LeftLugMargin}"/>
+                        <GridViewColumn Width="Auto" Header="右极耳边距" DisplayMemberBinding="{Binding RightLugMargin}"/>
+                        <GridViewColumn Width="Auto" Header="左极耳长度" DisplayMemberBinding="{Binding LeftLugLength}"/>
+                        <GridViewColumn Width="Auto" Header="右极耳长度" DisplayMemberBinding="{Binding RightLugLength}"/>
+                        <GridViewColumn Width="Auto" Header="左1小白胶" DisplayMemberBinding="{Binding Left1WhiteGlue}"/>
+                        <GridViewColumn Width="Auto" Header="左2小白胶" DisplayMemberBinding="{Binding Left2WhiteGlue}"/>
+                        <GridViewColumn Width="Auto" Header="右1小白胶" DisplayMemberBinding="{Binding Right1WhiteGlue}"/>
+                        <GridViewColumn Width="Auto" Header="右2小白胶" DisplayMemberBinding="{Binding Right2WhiteGlue}"/>
+                        <GridViewColumn Width="Auto" Header="尺寸结果" DisplayMemberBinding="{Binding DimensionResult}"/>
+                        <GridViewColumn Width="Auto" Header="厚度" DisplayMemberBinding="{Binding Thickness}"/>
+                        <GridViewColumn Width="Auto" Header="厚度工位" DisplayMemberBinding="{Binding PPGChannel}"/>
+                        <GridViewColumn Width="Auto" Header="厚度结果" DisplayMemberBinding="{Binding ThicknessResult}"/>
+                        <GridViewColumn Width="Auto" Header="XRAY结果" DisplayMemberBinding="{Binding FinalResult}"/>
+                        <GridViewColumn Width="Auto" Header="NG项" DisplayMemberBinding="{Binding NgItem}"/>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="测量数据" VerticalAlignment="Center" />
+        </Canvas>
+
+    </Canvas>
+
+</Page>

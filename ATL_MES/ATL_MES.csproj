@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69EE965E-6D5F-4D1D-BA2B-D763084CE592}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PTF</RootNamespace>
+    <AssemblyName>ATL_MES</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\PTF UI\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\PTF UI\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PTF.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MES.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\ATL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\ATL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Engine, Version=1.0.7572.18628, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.MES, Version=1.0.7572.18707, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.MES.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.PLCVariableValueService, Version=1.0.7572.18628, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.PLCVariableValueService.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Station, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\ATL.Station.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI, Version=1.0.7572.18709, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\ATL.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI.Core">
+      <HintPath>..\..\..\..\PTF UI\Debug\ATL.UI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="HslCommunication, Version=9.2.6.0, Culture=neutral, PublicKeyToken=cdb2261fa039ed67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\HslCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=2.3.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\MahApps.Metro.IconPacks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="Shuyz.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Shuyz.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.0\lib\net40\WpfAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\PTF UI\Debug\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZY.BLL\bin\Debug\ZY.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="ZY.Systems, Version=1.0.7787.29430, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZY.Systems\bin\Debug\ZY.Systems.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ATL\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ATL\MonitorDataCapacityStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ATL\MonitorNGStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ATL\MonitorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ATL\ProductOverviewPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ATL\StationStatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\en-US.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\zh-CN-ZY.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\zh-CN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Dictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATL\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ATL\MonitorDataCapacityStatistics.xaml.cs">
+      <DependentUpon>MonitorDataCapacityStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ATL\MonitorNGStatistics.xaml.cs">
+      <DependentUpon>MonitorNGStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ATL\MonitorPage.xaml.cs">
+      <DependentUpon>MonitorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ATL\ProductOverviewPage.xaml.cs">
+      <DependentUpon>ProductOverviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ATL\StationStatePage.xaml.cs">
+      <DependentUpon>StationStatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModVariable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\00.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\alarm_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\btncraftdetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_log_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_switch_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\datacapacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\deviceControl_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\equipprobably.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\lower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Image14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\jumpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_child_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\panel_bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_no.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_on.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\production.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\right_panel_border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\standby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_abnormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\daytime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\good.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\pgk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\time_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MES.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MES.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\mes_ng.gif" />
+    <Resource Include="assets\mes_ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\page\Battery_Model.png" />
+    <Resource Include="assets\page\down.bmp" />
+    <Resource Include="assets\page\equipprobably.png" />
+    <Resource Include="assets\page\left.bmp" />
+    <Resource Include="assets\page\refresh.bmp" />
+    <Resource Include="assets\page\right.bmp" />
+    <Resource Include="assets\page\up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CameraLib\ZY.Vision.csproj">
+      <Project>{83df75aa-dea3-460d-9cab-c1459ff863aa}</Project>
+      <Name>ZY.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRayClient.BatteryCheckManager\XRayClient.BatteryCheckManager.csproj">
+      <Project>{74e3df50-552d-4a53-a330-b44e5ce7646c}</Project>
+      <Name>XRayClient.BatteryCheckManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRayClient.Core\XRayClient.Core.csproj">
+      <Project>{59b88b50-9bcb-49ac-8f1a-ec1edb481b50}</Project>
+      <Name>XRayClient.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRayClient.VisionSysWrapper\XRayClient.VisionSysWrapper.csproj">
+      <Project>{d375ac35-5f11-4016-8ad9-6181fb0d8709}</Project>
+      <Name>XRayClient.VisionSysWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.BarCodeReader\ZY.BarCodeReader.csproj">
+      <Project>{0e5d0956-6c95-4afa-a7bf-72502fc15c64}</Project>
+      <Name>ZY.BarCodeReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.DAL\ZY.DAL.csproj">
+      <Project>{F8FC2E66-8266-4429-9905-F088901C1263}</Project>
+      <Name>ZY.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.Logging\ZY.Logging.csproj">
+      <Project>{e8a9c5f6-8662-4219-9250-a2c7f803d7fc}</Project>
+      <Name>ZY.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.MitutoyoReader\ZY.MitutoyoReader.csproj">
+      <Project>{c5fcc526-7799-4a19-8f80-83e2acc32844}</Project>
+      <Name>ZY.MitutoyoReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.Model\ZY.Model.csproj">
+      <Project>{40DF2F32-BDF6-4310-AE75-57D8D3BA7F1B}</Project>
+      <Name>ZY.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.Motion\ZY.Motion.csproj">
+      <Project>{c9031a4c-b971-4aa1-80bd-ecd43027ab6b}</Project>
+      <Name>ZY.Motion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.SerialDevice\ZY.SerialDevice.csproj">
+      <Project>{ac9ce350-4267-4509-80d2-e4ce953f4a0a}</Project>
+      <Name>ZY.SerialDevice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.XRayTube\ZY.XRayTube.csproj">
+      <Project>{718cfce6-e415-4025-90ee-3efc6274c41a}</Project>
+      <Name>ZY.XRayTube</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZYXray\ZYXray.csproj">
+      <Project>{91662d77-8fa5-4c74-8876-03ebc5504396}</Project>
+      <Name>ZYXray</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="appSettings.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

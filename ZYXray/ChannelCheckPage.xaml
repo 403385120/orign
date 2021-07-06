@@ -1,0 +1,61 @@
+﻿<controls:BasePage  
+    x:Class="ZYXray.ChannelCheckPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:converters="clr-namespace:ZYXray.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+    xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"
+    Title="ChannelCheckPage">
+
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}" Canvas.Top="95">
+
+            <GroupBox Header="OCV工位点检" Canvas.Left="120" Canvas.Top="150" Width="450">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="工位1电压:" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="txt_Vol1" Grid.Row="0" Grid.Column="1" Text="{Binding Voltage1}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <TextBox x:Name="txt_VolResult1" Grid.Row="0" Grid.Column="2" Text="{Binding VoltageResult1}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="工位2电压:" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="txt_Vol2" Grid.Row="1" Grid.Column="1" Text="{Binding Voltage2}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <TextBox x:Name="txt_VolResult2" Grid.Row="1" Grid.Column="2" Text="{Binding VoltageResult2}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="工位1内阻:" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="txt_Res1" Grid.Row="2" Grid.Column="1" Text="{Binding Resistance1}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <TextBox x:Name="txt_ResResult1" Grid.Row="2" Grid.Column="2" Text="{Binding ResistanceResult1}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="工位2内阻:" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="txt_Res2" Grid.Row="3" Grid.Column="1" Text="{Binding Resistance2}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+                    <TextBox x:Name="txt_ResResult2" Grid.Row="3" Grid.Column="2" Text="{Binding ResistanceResult2}" HorizontalAlignment="Stretch" IsReadOnly="True"/>
+
+                    <Button x:Name="btnClearData" Grid.Row="4" Grid.Column="2" Content="清 空" Margin="5"  Style="{DynamicResource AccentedSquareButtonStyle}" Command="{Binding ClearData}"/>
+                </Grid>
+            </GroupBox>
+
+        </Canvas>
+
+
+
+
+
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="通道点检" VerticalAlignment="Center" />
+        </Canvas>
+    </Canvas>
+</controls:BasePage>

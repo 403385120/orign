@@ -1,0 +1,594 @@
+﻿<UserControl
+    x:Class="ZYXray.TestCodesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:converters="clr-namespace:ZYXray.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+        d:DataContext="{d:DesignInstance viewModels:TestCodesVm,IsDesignTimeCreatable=True}"
+    DataContext="{Binding}"
+    mc:Ignorable="d">
+
+
+
+
+    <UserControl.Resources>
+        <converters:BooleanInverseConverter x:Key="BooleanInverseConverter" />
+        <converters:EnumToStringConverter x:Key="EnumToStringConverter" />
+        <converters:NullToDefaultConverter x:Key="NullToDefaultConverter" />
+        <converters:PagedListItemsConverter x:Key="PagedListItemsConverter" />
+        <converters:PagedListPageNumConverter x:Key="PagedListPageNumConverter" />
+        <converters:ParamsListMergeConverter x:Key="ParamsListMergeConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
+
+    <UserControl.Style>
+        <Style TargetType="{x:Type Control}">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+    </UserControl.Style>
+
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}"/>
+
+        <Grid Canvas.Left="330" Canvas.Top="200" Width="1200" Height="600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".08*" />
+                    <RowDefinition Height=".84*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="#004ff3" IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width=".5*" />
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Column="0"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="0,0,1,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="IDEN" />
+                    </Border>
+                    <Border
+                        Grid.Column="1"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="1,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{DynamicResource LL_BarCode}" />
+                    </Border>
+                    <Border
+                        Grid.Column="2"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="1,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{DynamicResource LL_CreateTime}" />
+                    </Border>
+                    <Border
+                        Grid.Column="3"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="1,0,0,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{DynamicResource LL_CreateBy}" />
+                    </Border>
+                    <Border
+                        Grid.Column="4"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="1,0">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{DynamicResource LL_Remarks}" />
+                    </Border>
+                </Grid>
+
+                <ItemsControl Grid.Row="1" Grid.Column="0" IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}">
+                    <ItemsControl.ItemsSource>
+                        <MultiBinding Converter="{StaticResource PagedListItemsConverter}" Mode="OneWay">
+                            <Binding Path="CurPageNum" />
+                            <Binding Path="NumPerPage" />
+                            <Binding Path="MyTestCodeManager.CodeList" />
+                        </MultiBinding>
+                    </ItemsControl.ItemsSource>
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="1" Rows="{Binding NumPerPage}" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="#75d3fa">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width=".5*" />
+                                </Grid.ColumnDefinitions>
+                                <Border
+                                    Grid.Column="0"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,1,0">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding RecordID}" />
+                                </Border>
+                                <Border
+                                    Grid.Column="1"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,1,0">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding BarCode}" />
+                                </Border>
+                                <Border
+                                    Grid.Column="2"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,1,0">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding CreateTime, StringFormat='{}{0: MM.dd HH:mm:ss}'}" />
+                                </Border>
+                                <Border
+                                    Grid.Column="3"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,1,0">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding CreateBy}" />
+                                </Border>
+                                <Border
+                                    Grid.Column="4"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,1,0">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding Remarks}"
+                                        TextWrapping="WrapWithOverflow" />
+                                    <Border.ToolTip>
+                                        <ToolTip>
+                                            <TextBlock Text="{Binding Remarks}" TextWrapping="WrapWithOverflow" />
+                                        </ToolTip>
+                                    </Border.ToolTip>
+                                </Border>
+                                <Border
+                                    Grid.Column="5"
+                                    BorderBrush="#0884ec"
+                                    BorderThickness="0,1,0,0">
+                                    <TextBlock
+                                        Margin="5,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Text="{DynamicResource LL_Delete}"
+                                        TextDecorations="Underline">
+                                        <TextBlock.InputBindings>
+                                            <MouseBinding
+                                                Command="{Binding Path=DataContext.DeleteCode, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                                CommandParameter="{Binding}"
+                                                MouseAction="LeftClick" />
+                                        </TextBlock.InputBindings>
+                                    </TextBlock>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height=".5*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width=".5*" />
+                    <ColumnDefinition Width=".5*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Foreground" Value="WhiteSmoke" />
+                    </Style>
+                </Grid.Resources>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_BarCode}"
+                    ContentStringFormat="{}{0} :" />
+                <TextBox IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="False"
+                    Text="{Binding BarCode}" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource LL_Remarks}"
+                    ContentStringFormat="{}{0} :" />
+                <ComboBox IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="False"
+                    Text="{Binding Remarks}">
+                    <ComboBoxItem>XRAY</ComboBoxItem>
+                    <ComboBoxItem>IV</ComboBoxItem>
+                </ComboBox>
+
+                <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                    MinWidth="100"
+                    MaxWidth="156"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Controls:ButtonHelper.PreserveTextCase="True"
+                BorderThickness="0"
+                Command="{Binding Update}"
+                Content="修改"
+                Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+                <Button IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    BorderThickness="0"
+                    Command="{Binding AddCode}"
+                    Content="{DynamicResource LL_Add}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}" />
+            </Grid>
+            <Border
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="1"
+                IsEnabled="{Binding MyUserManage.ActiveUser.MyUserGroup.CanSettings}"
+                BorderBrush="#0544bc"
+                BorderThickness="2,0,0,0" Margin="0.2,0,0,75">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".1*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width=".2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type Label}">
+                            <Setter Property="Foreground" Value="WhiteSmoke" />
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource LL_LastTestUser}"
+                        Visibility="Hidden"
+                        ContentStringFormat="{}{0} :" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding MyCheckParamsConfig.MyStartupTestConfig.lastTestBy}" />
+
+
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Text="{Binding MyCheckParamsConfig.MyStartupTestConfig.lastTestTime, StringFormat='{}{0: yy.MM.dd HH:mm:ss}'}" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource LL_MenuTestSetting}"
+                        ContentStringFormat="{}{0} :" />
+                    <Controls:NumericUpDown
+                        Grid.Row="5"
+                        Grid.Column="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource WhiteColorBrush}"
+                        BorderThickness="0,0,0,1"
+                        HasDecimals="True"
+                        IsReadOnly="False"
+                        Maximum="36"
+                        Minimum="1"
+                        StringFormat="{}{0:N1} 小时"
+                        Visibility="Hidden"
+                        Value="{Binding MyCheckParamsConfig.MyStartupTestConfig.testInterval}" />
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="{DynamicResource LL_TestCodeCnt}"
+                        ContentStringFormat="{}{0} :" />
+                    <Controls:NumericUpDown
+                        Grid.Row="4"
+                        Grid.Column="2"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource WhiteColorBrush}"
+                        BorderThickness="0,0,0,1"
+                        IsReadOnly="False"
+                        Maximum="20"
+                        Minimum="1"
+                        Value="{Binding MyCheckParamsConfig.MyStartupTestConfig.TestNGNum}" />
+
+                    <Label
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="IV点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="5"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.IvCheckTime}" />
+
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="OCV点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="6"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.OcvCheckTime}" />
+
+                    <Label
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="FQI点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="7"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.MdiCheckTime}" />
+
+                    <Label
+                        Grid.Row="8"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="PPG点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="8"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.PpgCheckTime}" />
+
+                    <Label
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="线性点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="9"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.LinearCheckTime}" />
+
+                    <Label
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="针规点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="10"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.NeedleCheckTime}" />
+
+                    <Label
+                        Grid.Row="11"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Content="XRAY点检完成时间"
+                        ContentStringFormat="{}{0} :" />
+
+                    <TextBox
+                    Grid.Row="11"
+                    Grid.Column="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{DynamicResource WhiteColorBrush}"
+                    BorderThickness="0,0,0,1"
+                    IsReadOnly="True"
+                    Text="{Binding MyCheckParamsConfig.XrayCheckTime}" />
+                    
+                    <Button
+                        Grid.Row="112"
+                        Grid.Column="2"
+                        MinWidth="100"
+                        MaxWidth="156"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Controls:ButtonHelper.PreserveTextCase="True"
+                        BorderThickness="0"
+                        Command="{Binding SaveConfig}"
+                        Content="{DynamicResource LL_Save}"
+                        Style="{DynamicResource AccentedSquareButtonStyle}" />
+                </Grid>
+            </Border>
+
+            <Border
+                Grid.Row="2"
+                Grid.Column="0"
+                Width="Auto"
+                MaxHeight="40"
+                HorizontalAlignment="Center"
+                Background="WhiteSmoke"
+                CornerRadius="5"
+                Opacity=".5">
+                <StackPanel Margin="10,0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="10,0,10,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Foreground="Black"
+                        Text="{DynamicResource LL_NavPrev}">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="{Binding NavPrevious}" MouseAction="LeftClick" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+
+                    <Label
+                        Margin="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="{Binding CurPageNum}" />
+                    <Label
+                        Margin="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="/" />
+                    <Label
+                        Margin="0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <Label.Content>
+                            <MultiBinding Converter="{StaticResource PagedListPageNumConverter}" Mode="OneWay">
+                                <Binding Path="NumPerPage" />
+                                <Binding Path="MyTestCodeManager.CodeList" />
+                            </MultiBinding>
+                        </Label.Content>
+                    </Label>
+
+                    <TextBlock
+                        Margin="10,0,10,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Foreground="Black"
+                        Text="{DynamicResource LL_NavNext}">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="{Binding NavNext}" MouseAction="LeftClick" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="点检设置" VerticalAlignment="Center" />
+        </Canvas>
+
+    </Canvas>
+</UserControl>

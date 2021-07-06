@@ -1,0 +1,827 @@
+﻿<controls:BasePage x:Class="ZYXray.IVOCVParamsSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:converters="clr-namespace:ZYXray.Converters"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"
+      xmlns:local="clr-namespace:ZYXray"
+      xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+      mc:Ignorable="d" 
+      Title="IVOCVParamsSettingsPage">
+
+    <Canvas Width="1600" Height="900">
+
+        <Grid Canvas.Left="310" Canvas.Top="200" Width="1200" Height="590" IsEnabled="{Binding MyCheckParamsConfig.IsEnabled}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".02*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_MIDataDir}"
+                ContentStringFormat="{}{0} :" 
+                Visibility="Hidden"/>
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsReadOnly="False"
+                Text="{Binding MyCheckParamsConfig.MIDataDir}" 
+                Visibility="Hidden"/>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_MIData}"
+                ContentStringFormat="{}{0} :" 
+                Visibility="Hidden"/>
+
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsEnabled="False"
+                IsReadOnly="False"
+                Text="{Binding MySTFClientConfig.ProductNO}" 
+                Visibility="Hidden"/>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
+                Margin="2,-10"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Content="{DynamicResource LL_MIDataTips}"
+                FontSize="10"
+                Foreground="Red" 
+                Visibility="Hidden"/>
+
+            <Grid Grid.Row="4" Grid.Column="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="53*" />
+                    <ColumnDefinition Width="91*"/>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="7" Grid.Column="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池内阻最小值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="3"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="0"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.MinResistance}"/>
+
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池内阻最大值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="4"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="0"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.MaxResistance}"/>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池电压最小值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="1"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="0"
+                StringFormat="N4"
+                Value="{Binding MyCheckParamsConfig.MinVoltage}"/>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池电压最大值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="2"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="0"
+                StringFormat="N4"
+                Value="{Binding MyCheckParamsConfig.MaxVoltage}"/>
+
+
+            <Label
+                Grid.Row="5"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池温度最小值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="5"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="0"
+                StringFormat="N2"
+                Value="{Binding MyCheckParamsConfig.MinTemperature}"/>
+
+            <Label
+                Grid.Row="6"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池温度最大值"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:NumericUpDown
+                Grid.Row="6"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="0"
+                StringFormat="N2"
+                Value="{Binding MyCheckParamsConfig.MaxTemperature}"/>
+
+            <Label
+                Grid.Row="7"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电压补偿"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="7"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N6"
+                Value="{Binding MyCheckParamsConfig.VoltageCoefficient}"/>
+
+            <Label
+                Grid.Row="8"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="内阻补偿"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="8"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.ResistanceCoefficient}"/>
+
+            <Label
+                Grid.Row="9"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位1温度补偿"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="9"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.TemperatureCoefficient}"/>
+
+            <Label
+                Grid.Row="10"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位2温度补偿"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="10"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.TemperatureCoefficient2}"/>
+
+            <Label
+                Grid.Row="11"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="电池温度和环境温度差"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="11"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="0"
+                StringFormat="N2"
+                Value="{Binding MyCheckParamsConfig.RangeOfTemperatrue}"/>
+
+            <Label
+                Grid.Row="12"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="OCV连续NG报警"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="12"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="3"
+                Value="{Binding MyCheckParamsConfig.OCVWarmingCounts}"/>
+
+            <Label
+                Grid.Row="13"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="不测内阻时内阻设定值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="13"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.ResistanceFixedValue}"/>
+
+            <Label
+                Grid.Row="14"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="不测温度时温度设定值"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="14"
+                Grid.Column="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="false"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.TemperatureFixedValue}"/>
+
+            <CheckBox 
+                Grid.Row="18"
+                Grid.Column="1"
+                Margin="5,5"
+                Content="不测内阻"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsNoResistance}">
+            </CheckBox>
+
+            <CheckBox 
+                Grid.Row="18"
+                Grid.Column="2"
+                Margin="5,5"
+                Content="不测温度"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsNoTemperature}">
+            </CheckBox>
+
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV初始值(判断依据4)"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="1"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.Source}"/>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV跳变值(判断依据5)"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="2"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.Range}"/>
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV上限"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="3"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.MaxIV}"/>
+
+            <Label
+                Grid.Row="4"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV下限"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="4"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.MinIV}"/>
+
+            <Label
+                Grid.Row="5"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV异常值1"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="5"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.ExceptionData1}"/>
+
+            <Label
+                Grid.Row="6"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV异常值2"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="6"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Minimum="-10"
+                StringFormat="N3"
+                Value="{Binding MyCheckParamsConfig.ExceptionData2}"/>
+
+            <Label
+                Grid.Row="7"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="IV测试时间"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="7"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="True"
+                Value="{Binding MyCheckParamsConfig.IvTestTime}"/>
+
+            <Label
+                Grid.Row="8"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位1对应通道"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:NumericUpDown
+                Grid.Row="8"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                Minimum="1"
+                Maximum="16"
+                Value="{Binding MyCheckParamsConfig.IvStation1Channel}"/>
+
+            <Label
+                Grid.Row="9"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位2对应通道"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:NumericUpDown
+                Grid.Row="9"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                Minimum="1"
+                Maximum="16"
+                Value="{Binding MyCheckParamsConfig.IvStation2Channel}"/>
+
+            <Label
+                Grid.Row="10"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位3对应通道"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:NumericUpDown
+                Grid.Row="10"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                Minimum="1"
+                Maximum="16"
+                Value="{Binding MyCheckParamsConfig.IvStation3Channel}"/>
+
+            <Label
+                Grid.Row="11"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="工位4对应通道"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:NumericUpDown
+                Grid.Row="11"
+                Grid.Column="5"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                Minimum="1"
+                Maximum="16"
+                Value="{Binding MyCheckParamsConfig.IvStation4Channel}"/>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="7"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="周次校验"
+                ContentStringFormat="{}{0} :" />
+            <Controls:NumericUpDown
+                Grid.Row="1"
+                Grid.Column="8"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                HasDecimals="True"
+                IsReadOnly="False"
+                Minimum="1"
+                Maximum="54"
+                Value="{Binding MyCheckParamsConfig.WeekCounts}"/>
+
+            <CheckBox 
+                Grid.Row="1"
+                Grid.Column="9"
+                Margin="5,5"
+                Content="启用"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsCheckWeekCount}">
+            </CheckBox>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="7"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="MI号校验"
+                ContentStringFormat="{}{0} :" />
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="8"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsReadOnly="False"
+                Text="{Binding MyCheckParamsConfig.Mi}" />
+
+            <CheckBox 
+                Grid.Row="2"
+                Grid.Column="9"
+                Margin="5,5"
+                Content="启用"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsCheckMI}">
+            </CheckBox>
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="7"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="标记marking"
+                ContentStringFormat="{}{0} :" />
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="8"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsReadOnly="False"
+                Text="{Binding MyCheckParamsConfig.SetMarking}" />
+
+            <CheckBox 
+                Grid.Row="3"
+                Grid.Column="9"
+                Margin="5,5"
+                Content="启用"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsSetMarking}">
+            </CheckBox>
+            <TextBox
+                Grid.Row="17"
+                Grid.Column="2"
+                Grid.ColumnSpan="7"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                IsReadOnly="True"
+                Text="{Binding MyCheckParamsConfig.MarkingCurrent}" />
+
+            <CheckBox 
+                Grid.Row="17"
+                Grid.Column="9"
+                Margin="5,5"
+                Content="启用"
+                HorizontalAlignment="Center"
+                IsChecked="{Binding MyCheckParamsConfig.IsCheckMarking}">
+            </CheckBox>
+
+            <Button
+                Grid.Row="17"
+                Grid.Column="1"
+                MinWidth="150"
+                MaxWidth="156"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Controls:ButtonHelper.PreserveTextCase="True"
+                BorderThickness="0"
+                Command="{Binding MarkingSetting}"
+                Content="Marking管理"
+                />
+
+            <GroupBox 
+                x:Name="groupBox" 
+                Grid.Column="7" 
+                Grid.Row="5" 
+                Header="IV导通复判(以下两点同时OK判导通)" 
+                Margin="10,0,0,5" 
+                Grid.RowSpan="4" 
+                Grid.ColumnSpan="2"
+                >
+                <Grid Margin="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.8*" />
+                    </Grid.RowDefinitions>
+                    <Label 
+                        Grid.Row="0" 
+                        Margin="0" 
+                        Content="1、当IV1到IV6的最大值&gt;=初始值"/>
+                    <Label 
+                        Grid.Row="1"
+                        Grid.RowSpan="1"
+                        Margin="0">
+                        <TextBlock 
+                            TextWrapping="Wrap" 
+                            Text="2、当IV1到IV4的最大值与IV5和IV6的最大值的差&lt;=跳变值" Width="275" Height="45" />
+                    </Label>
+                </Grid>
+
+            </GroupBox>
+            <GroupBox 
+                Header="IV规格判定" 
+                Grid.Column="7" 
+                Grid.Row="9" 
+                Margin="10,0,0,5" 
+                Grid.RowSpan="6"
+                Grid.ColumnSpan="2">
+                <Grid Margin="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.7*" />
+                    </Grid.RowDefinitions>
+                    <Label  
+                        Margin="0" 
+                        Content="1、当IV5和IV6的最大值&gt;=IV上限值，判NG" />
+                    <Label  
+                        Grid.Row="1"
+                        Margin="0" 
+                        Content="2、当IV5和IV6的最大值&lt;=IV下限值，判NG" />
+                    <Label  
+                        Grid.Row="1"
+                        Margin="2,28,-2,3" 
+                        Content="3、当IV1到IV6的最大值&lt;=IV数据异常1，判NG" Grid.RowSpan="2" />
+                    <Label  
+                        Grid.Row="3"
+                        Margin="0" >
+                        <TextBlock TextWrapping="Wrap" Text="4、当IV1到IV4的最大值与IV5到IV6的最大值之差>=IV数据异常2，判NG" Height="35" Width="275"/>
+                    </Label>
+                </Grid>
+
+            </GroupBox>
+
+        </Grid>
+
+        <Grid Canvas.Left="310" Canvas.Top="800" Width="1200" Height="50" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                MinWidth="150"
+                MaxWidth="156"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Controls:ButtonHelper.PreserveTextCase="True"
+                BorderThickness="0"
+                IsEnabled="False"
+                Command="{Binding SaveConfig}"
+                Content="{DynamicResource LL_Save}"
+                Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                MinWidth="150"
+                MaxWidth="156"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Controls:ButtonHelper.PreserveTextCase="True"
+                BorderThickness="0"
+                Command="{Binding Update}"
+                Content="修改"
+                Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+        </Grid>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="IV/OCV参数设置" VerticalAlignment="Center" />
+        </Canvas>
+    </Canvas>
+</controls:BasePage>

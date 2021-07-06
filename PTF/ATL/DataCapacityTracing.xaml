@@ -1,0 +1,64 @@
+﻿<controls:BasePage x:Class="PTF.DataCapacityTracing"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PTF"
+      xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Loaded="Page_Loaded"
+      Title="DataCapacityTracing">
+    <controls:BasePage.Resources>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Padding" Value="16"/>
+        </Style>
+
+        <Style x:Key="FilterTextStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="8,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DataGridStyle1}">
+            <Setter Property="Canvas.Top" Value="190"/>
+            <Setter Property="Canvas.Left" Value="343"/>
+            <Setter Property="FrameworkElement.MaxWidth" Value="1175"/>
+            <Setter Property="FrameworkElement.Height" Value="700"/>
+            <Setter Property="FrameworkElement.Width" Value="1179"/>
+        </Style>
+    </controls:BasePage.Resources>
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}"/>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="追溯定位"/>
+            <StackPanel  Orientation="Horizontal" Canvas.Top="10" Canvas.Left="200">
+                <Label Content="条码" Style="{StaticResource FilterTextStyle}"/>
+                <TextBox x:Name="txtBarcode" Width="150"/>
+                <Label Content="时间" Style="{StaticResource FilterTextStyle}"/>
+                <xctk:DateTimePicker  Width="180" x:Name="DateTimeStart" ValueChanged="DateTimeStart_ValueChanged"/>
+                <Label Content="至" Style="{StaticResource FilterTextStyle}"/>
+                <xctk:DateTimePicker  Width="180" x:Name="DateTimeEnd" ValueChanged="DateTimeEnd_ValueChanged"/>
+                <Button Click="btnQuery_Click" x:Name="btnQuery" Style="{StaticResource BaseSmallBorderButtonStyle}"
+					Content="查询" Width="80" Height="24" VerticalAlignment="Center" Margin="20,0"/>
+
+            </StackPanel>
+        </Canvas>
+        <DataGrid x:Name="inspection1DataGrid" Visibility="Collapsed" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Model" HeaderStyle="{StaticResource MiddleColumnStyle}" Binding="{Binding Model}"/>
+                <DataGridTextColumn Header="弹夹条码" HeaderStyle="{StaticResource MiddleColumnStyle}" Binding="{Binding CarrierBarcode}"/>
+                <DataGridTextColumn Header="电芯条码" HeaderStyle="{StaticResource MiddleColumnStyle}" Binding="{Binding CellBarCode}"/>
+                <DataGridTextColumn Header="电芯序号" HeaderStyle="{StaticResource MiddleColumnStyle}" Binding="{Binding CellOrderID}"/>
+                <DataGridTextColumn Header="绑定时间" Width="230" HeaderStyle="{StaticResource MiddleColumnStyle}"
+                            Binding="{Binding BindTime, StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                <DataGridTextColumn Header="绑定结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Binding="{Binding BindResult}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <controls:Pager x:Name="pager" Style="{StaticResource PagerStyle1}" Visibility="Collapsed"/>
+    </Canvas>
+</controls:BasePage>

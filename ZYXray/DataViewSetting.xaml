@@ -1,0 +1,20 @@
+﻿<Page x:Class="ZYXray.DataViewSetting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZYXray"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+
+    Title="DataViewSetting" Height="863.4" Width="1558.6" >
+
+    <Canvas Margin="0,0,-0.6,0.2">
+        <Canvas Style="{StaticResource  CanvasStyle1}" Height="730" Canvas.Left="285" Canvas.Top="90" Width="1235"/>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}" Canvas.Left="531">
+            <Label Style="{StaticResource TabTitleStyle1}" VerticalAlignment="Center" />
+        </Canvas>
+        <Grid Width="1196" Canvas.Top="178" Canvas.Left="305" Height="622" Name="grid">
+        </Grid>
+    </Canvas>
+</Page>

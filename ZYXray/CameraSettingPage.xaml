@@ -1,0 +1,772 @@
+﻿<UserControl
+    x:Class="ZYXray.CameraSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:converters="clr-namespace:ZYXray.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+    xmlns:views="clr-namespace:ZYXray"  
+    mc:Ignorable="d">
+
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}"/>
+
+        <Grid Canvas.Left="330" Canvas.Top="200" Width="1200" Height="600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="9*" />
+            </Grid.RowDefinitions>
+
+            <Grid
+                Grid.Row="0"
+                Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="2,2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource LL_VideoMode}"
+                            ContentStringFormat="{}{0} :"
+                            Foreground="WhiteSmoke" />
+                <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Margin="2,-3"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Content="{DynamicResource LL_VideoModeTips}"
+                            FontSize="10"
+                            Foreground="Red" />
+
+                <Controls:ToggleSwitch
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="5,2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            IsChecked="{Binding Instance.IsVideoOn}"
+                            OffLabel="{DynamicResource LL_Off}"
+                            OnLabel="{DynamicResource LL_On}" />
+
+                <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="2,2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Content="{DynamicResource LL_AvgFilter}"
+                            ContentStringFormat="{}{0} :"
+                            Foreground="WhiteSmoke" />
+
+                <Controls:ToggleSwitch
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Margin="5,2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Foreground="WhiteSmoke"
+                            IsChecked="{Binding IsFilterOn}"
+                            OffLabel="{DynamicResource LL_Off}"
+                            OnLabel="{DynamicResource LL_On}" />
+
+                <Button
+                            Grid.Row="0"
+                            Grid.Column="4"
+                            MinWidth="100"
+                            MaxWidth="156"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Controls:ButtonHelper.PreserveTextCase="True"
+                            BorderThickness="0"
+                            Command="{Binding ManualUpdate}"
+                            Content="{DynamicResource LL_CamManualRefresh}"
+                            Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+
+            </Grid>
+
+            <!--  图像控件  -->
+            <views:ImageControl
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        DataContext="{Binding AvtiveImage}" Grid.ColumnSpan="2" Margin="9,1,291,-1" />
+            <Grid
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Opacity=".5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".01*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width=".45*" />
+                    <ColumnDefinition Width=".01*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Content="{DynamicResource LL_Valtange}"
+                            ContentStringFormat="{}{0} :"
+                            Foreground="WhiteSmoke" />
+                <Grid Grid.Row="1" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width=".2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="0"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Label
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="110"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{Binding XTubeVal}"
+                                ContentStringFormat="{}{0} kV"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Slider
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                AutoToolTipPlacement="TopLeft"
+                                AutoToolTipPrecision="0"
+                                Foreground="WhiteSmoke"
+                                Maximum="110"
+                                Minimum="0"
+                                TickFrequency="1"
+                                TickPlacement="TopLeft"
+                                IsEnabled="{Binding IsEnabled}"
+                                Value="{Binding XTubeVal}" >
+                        <Slider.LayoutTransform>
+                            <ScaleTransform  ScaleX="3"/>
+                        </Slider.LayoutTransform>
+                    </Slider>
+                </Grid>
+
+                <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Content="{DynamicResource LL_Current}"
+                            ContentStringFormat="{}{0} :"
+                            Foreground="WhiteSmoke" />
+                <Grid Grid.Row="2" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width=".2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="0"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Label
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="455"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="{Binding XTubeCurrent}"
+                                ContentStringFormat="{}{0} uA"
+                                FontSize="10"
+                                Foreground="WhiteSmoke" />
+                    <Slider
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                AutoToolTipPlacement="TopLeft"
+                                AutoToolTipPrecision="0"
+                                Foreground="WhiteSmoke"
+                                Maximum="455"
+                                Minimum="0"
+                                TickFrequency="1"
+                                TickPlacement="TopLeft"
+                                IsEnabled="{Binding IsEnabled}"
+                                Value="{Binding XTubeCurrent}" >
+                        <Slider.LayoutTransform>
+                            <ScaleTransform  ScaleX="3"/>
+                        </Slider.LayoutTransform>
+                    </Slider>
+                </Grid>
+            </Grid>
+
+            <Grid
+                        Grid.Row="0"
+                        Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width=".2*" />
+                </Grid.ColumnDefinitions>
+                <!--<Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    MinWidth="100"
+                    MaxWidth="156"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Controls:ButtonHelper.PreserveTextCase="True"
+                    BorderThickness="0"
+                    Content="运动控制"
+                    Command="{Binding ShowCNC}"
+                    Style="{DynamicResource AccentedSquareButtonStyle}" />-->
+                <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            MinWidth="100"
+                            MaxWidth="156"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Controls:ButtonHelper.PreserveTextCase="True"
+                            BorderThickness="0"
+                            Command="{Binding ToggleFullScreen}"
+                            Content="{DynamicResource LL_CamCalibration}"
+                            Style="{DynamicResource AccentedSquareButtonStyle}" 
+                            Visibility="Hidden"/>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Margin="2,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Content="相机切换"
+                    ContentStringFormat="{}{0} :"
+                    Foreground="WhiteSmoke" 
+                    Visibility="Visible"/>
+
+                <Controls:ToggleSwitch
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="5,2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="WhiteSmoke"
+                    IsChecked="{Binding Instance.IsCam2Selected}"
+                    OffLabel="相机1"
+                    OnLabel="相机2" 
+                    Visibility="Visible"/>
+            </Grid>
+            <!--  参数栏  -->
+            <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        BorderBrush="#0884ec"
+                        BorderThickness="1.5,0,0,0">
+                <Grid
+                            Grid.Row="1"
+                            Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".9*" />
+                        <ColumnDefinition Width="1.1*" />
+                        <ColumnDefinition Width=".2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CameraType}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <ComboBox
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                IsEnabled="False"
+                                ItemsSource="{Binding BindableCamModels}"
+                                Text="{Binding CamModel}" />
+                    <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CameraSn}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <!--<ComboBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                IsEditable="False"
+                                 ItemsSource="{Binding SnList}"
+                                Text="{Binding SerialNo}" IsDropDownOpen="False" />-->
+                    <TextBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                IsReadOnly="True"
+                                Text="{Binding SerialNo}" />
+                    <Label
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamImageWidth}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                IsEnabled="False"
+                                Maximum="1600"
+                                Minimum="800"
+                                Value="{Binding Width}" />
+                    <Label
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamImageHeight}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                IsEnabled="False"
+                                Maximum="1600"
+                                Minimum="800"
+                                Value="{Binding Height}" />
+                    <Label
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamExposure}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <TextBlock
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                FontSize="9"
+                                Foreground="WhiteSmoke"
+                                Text="{Binding Exposure}" />
+                    <Slider
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                AutoToolTipPlacement="TopLeft"
+                                AutoToolTipPrecision="0"
+                                Foreground="WhiteSmoke"
+                                Maximum="200"
+                                Minimum="1"
+                                TickFrequency="1"
+                                TickPlacement="TopLeft"
+                                IsEnabled="{Binding IsEnabled}"
+                                Value="{Binding Exposure}" >
+                        <Slider.LayoutTransform>
+                            <ScaleTransform  ScaleX="3"/>
+                        </Slider.LayoutTransform>
+                    </Slider>
+                    <Label
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamGain}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <TextBlock
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                FontSize="9"
+                                Foreground="WhiteSmoke"
+                                Text="{Binding Gain}" />
+                    <Slider
+                                Grid.Row="5"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                AutoToolTipPlacement="TopLeft"
+                                AutoToolTipPrecision="0"
+                                Foreground="WhiteSmoke"
+                                Maximum="5"
+                                Minimum="1"
+                                TickFrequency="1"
+                                TickPlacement="TopLeft"
+                                IsEnabled="{Binding IsEnabled}"
+                                Value="{Binding Gain}" >
+                        <Slider.LayoutTransform>
+                            <ScaleTransform  ScaleX="3"/>
+                        </Slider.LayoutTransform>
+                    </Slider>
+                    <Label
+                                Grid.Row="6"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamAgvFilterNum}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="15"
+                                Minimum="1"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding AvgValue}" />
+                    <Label
+                                Grid.Row="7"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamPixelRatio}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="7"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                HasDecimals="True"
+                                IsEnabled="False"
+                                StringFormat="{}{0:N6}"
+                                Value="{Binding PixelRatio}" />
+                    <Label
+                                Grid.Row="8"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_CamMirror}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" 
+                                Visibility="Hidden"/>
+
+                    <Grid
+                                Grid.Row="8"
+                                Grid.Column="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Controls:ToggleSwitch
+                                    Visibility="Hidden"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Margin="2,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="WhiteSmoke"
+                                    IsChecked="{Binding XFlip}"
+                                    OffLabel="{DynamicResource LL_CamMirrorX}"
+                                    OnLabel="{DynamicResource LL_CamMirrorX}" />
+                        <Controls:ToggleSwitch
+                                    Visibility="Hidden"
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Margin="2,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="WhiteSmoke"
+                                    IsChecked="{Binding YFlip}"
+                                    OffLabel="{DynamicResource LL_CamMirrorY}"
+                                    OnLabel="{DynamicResource LL_CamMirrorY}" />
+                    </Grid>
+
+                    <Label
+                                Grid.Row="8"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content= "最小灰度值"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="8"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                HasDecimals="True"
+                                Interval="1"
+                                StringFormat="{}{0:N0}"
+                                Value="{Binding MinGray}" />
+
+                    <Label
+                                Grid.Row="9"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content= "最大灰度值"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="9"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                HasDecimals="True"
+                                Interval="1"
+                                StringFormat="{}{0:N0}"
+                                Value="{Binding MaxGray}" />
+
+                    <Label
+                                Grid.Row="10"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_ShotDelay1}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="4000"
+                                Minimum="0"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding ShotDelayTime1}" />
+                    <Label
+                                Grid.Row="11"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_ShotDelay2}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="11"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="4000"
+                                Minimum="0"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding ShotDelayTime2}" />
+
+                    <Label
+                                Grid.Row="12"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_ShotDelay3}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="12"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="4000"
+                                Minimum="0"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding ShotDelayTime3}" />
+
+                    <Label
+                                Grid.Row="13"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_ShotDelay4}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="13"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="4000"
+                                Minimum="0"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding ShotDelayTime4}" />
+
+                    <Label
+                                Grid.Row="14"
+                                Grid.Column="0"
+                                Margin="2,2"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Content="{DynamicResource LL_ScanBarcodeDelay}"
+                                ContentStringFormat="{}{0} :"
+                                Foreground="WhiteSmoke" />
+                    <Controls:NumericUpDown
+                                Grid.Row="14"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{DynamicResource WhiteColorBrush}"
+                                BorderThickness="0,0,0,1"
+                                Interval="1"
+                                Maximum="4000"
+                                Minimum="0"
+                                IsReadOnly="{Binding IsReadOnly}"
+                                Value="{Binding ScanBarcodeDelayTime}" />
+
+                    <!--Value="{Binding ShotDelayTime}"-->
+                    
+                    <Button
+                                Grid.Row="15"
+                                Grid.Column="1"
+                                MinWidth="100"
+                                MaxWidth="156"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Controls:ButtonHelper.PreserveTextCase="True"
+                                BorderThickness="0"
+                                Command="{Binding SaveConfig}"
+                                Content="{DynamicResource LL_Save}"
+                                Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+                    <Button
+                                Grid.Row="15"
+                                Grid.Column="0"
+                                MinWidth="100"
+                                MaxWidth="156"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Controls:ButtonHelper.PreserveTextCase="True"
+                                BorderThickness="0"
+                                Command="{Binding Update}"
+                                Content="修改"
+                                Style="{DynamicResource AccentedSquareButtonStyle}" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="相机设置" VerticalAlignment="Center" />
+        </Canvas>
+
+    </Canvas>
+</UserControl>

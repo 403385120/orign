@@ -1,0 +1,45 @@
+﻿<controls:BasePage x:Class="PTF.MonitorDataCapacityStatistics"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:local="clr-namespace:PTF"
+                   xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"                 
+                   Loaded="Page_Loaded" Title="MonitorDataCapacityStatistics">
+    <Grid>
+        <Grid  VerticalAlignment="Center" Width="385"  Height="410"  >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  Background="#FF0070C0" />
+            <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" Background="#FF74D2F8" />
+            <Border Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" Background="#FF74D2F8" />
+            <Border Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" Background="#FF74D2F8" />
+            <Border Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" Background="#FF74D2F8" />
+            <Border Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" BorderBrush="White" BorderThickness="1" Background="#FF74D2F8" />
+            <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="5" BorderBrush="White" BorderThickness="1" />
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource ForegroundIsWhiteStyle}" Text="{DynamicResource biProductStatistic}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource PagerStyle1}" Text="{DynamicResource biInputAmount:}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource PagerStyle1}" Text="{DynamicResource biOK:}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource PagerStyle1}" Text="{DynamicResource biNG:}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource PagerStyle1}" Text="{DynamicResource biYield:}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource PagerStyle1}" Text="PPM：" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource PagerStyle1}" Text="{Binding InAllCount}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource PagerStyle1}" Text="{Binding OKCount}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource PagerStyle1}" Text="{Binding NGCount}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource PagerStyle1}" Text="{Binding CurrYield}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+            <TextBlock Grid.Column="1" Grid.Row="5" Style="{StaticResource  PagerStyle1}" Text="{Binding PPM}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"/>
+        </Grid>
+    </Grid>
+</controls:BasePage>

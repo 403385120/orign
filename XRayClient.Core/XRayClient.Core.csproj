@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59B88B50-9BCB-49AC-8F1A-EC1EDB481B50}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XRayClient.Core</RootNamespace>
+    <AssemblyName>XRayClient.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\PTF UI\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SYNC_SEAT_BY_LOGIC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE;SYNC_SEAT_BY_LOGIC</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SYNC_SEAT_BY_LOGIC</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;SYNC_SEAT_BY_LOGIC</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATL.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PTF UI\Debug\ATL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PTF UI\Debug\ATL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Engine, Version=1.0.7519.29414, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.MES, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PTF UI\Debug\ATL.MES.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.Station, Version=1.0.7555.33695, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.Station.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoLineInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\AutoLineInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PicCompress, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\PTF UI\Debug\PicCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="Shuyz.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Managed\Shuyz.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XRayClient.VisionSysWrapper, Version=1.0.0.1, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\XRayClient.VisionSysWrapper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bis.cs" />
+    <Compile Include="CheckLogic\AlgoWrapperExt.cs" />
+    <Compile Include="CheckLogic\ArrayHelper.cs" />
+    <Compile Include="CheckLogic\Extensions\CheckLogicExtRunEmpty.cs" />
+    <Compile Include="CheckLogic\Extensions\CheckLogicExtTest.cs" />
+    <Compile Include="CheckLogic\Extensions\CheckLogicExtFactory.cs" />
+    <Compile Include="CheckLogic\CheckLogicFactory.cs" />
+    <Compile Include="CheckLogic\Extensions\CheckLogicExtSTF.cs" />
+    <Compile Include="CheckLogic\Extensions\ECheckExtensions.cs" />
+    <Compile Include="CheckLogic\Extensions\ICheckLogicExt.cs" />
+    <Compile Include="CheckLogic\TwoSides13CheckLogic.cs" />
+    <Compile Include="DiskManage\CshapeDelete.cs" />
+    <Compile Include="DiskManage\CshapeDeleteIF.cs" />
+    <Compile Include="Models\BatteryTestData.cs" />
+    <Compile Include="Models\EAlgoResults.cs" />
+    <Compile Include="Models\EResultCodes.cs" />
+    <Compile Include="Models\JsonUtils.cs" />
+    <Compile Include="Models\StopReason.cs" />
+    <Compile Include="Options\ReModelRead.cs" />
+    <Compile Include="Options\StartupTestConfig.cs" />
+    <Compile Include="Recheck\ManualRecheck.cs" />
+    <Compile Include="Models\CheckStatus.cs" />
+    <Compile Include="Options\MIRead.cs" />
+    <Compile Include="Recheck\RecheckStatus.cs" />
+    <Compile Include="CheckLogic\AlgoWrapper.cs" />
+    <Compile Include="BotIF.cs" />
+    <Compile Include="EventRelays\ResultRelay.cs" />
+    <Compile Include="Converters\ConertersUtils.cs" />
+    <Compile Include="Options\CheckParamsConfig.cs" />
+    <Compile Include="Options\EImageFormats.cs" />
+    <Compile Include="Options\ImageDefinations.cs" />
+    <Compile Include="Options\ImageSaveConfig.cs" />
+    <Compile Include="Resources\Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BatteryCorner.cs" />
+    <Compile Include="Models\BatterySeat.cs" />
+    <Compile Include="BuildTime.cs" />
+    <Compile Include="CheckLogic\ICheckLogic.cs" />
+    <Compile Include="CheckLogic\ECheckModes.cs" />
+    <Compile Include="CheckLogic\FourSidesCheckLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bot.cs" />
+    <Compile Include="Models\WorkingSeats.cs" />
+    <Compile Include="Models\Statistics.cs" />
+    <Compile Include="Tips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tips.Designer.cs">
+      <DependentUpon>Tips.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CameraLib\ZY.Vision.csproj">
+      <Project>{83df75aa-dea3-460d-9cab-c1459ff863aa}</Project>
+      <Name>ZY.Vision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XRayClient.BatteryCheckManager\XRayClient.BatteryCheckManager.csproj">
+      <Project>{74e3df50-552d-4a53-a330-b44e5ce7646c}</Project>
+      <Name>XRayClient.BatteryCheckManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.BarCodeReader\ZY.BarCodeReader.csproj">
+      <Project>{0e5d0956-6c95-4afa-a7bf-72502fc15c64}</Project>
+      <Name>ZY.BarCodeReader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.Logging\ZY.Logging.csproj">
+      <Project>{e8a9c5f6-8662-4219-9250-a2c7f803d7fc}</Project>
+      <Name>ZY.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZY.XRayTube\ZY.XRayTube.csproj">
+      <Project>{718cfce6-e415-4025-90ee-3efc6274c41a}</Project>
+      <Name>ZY.XRayTube</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tips.resx">
+      <DependentUpon>Tips.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Battery_Model.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BatterySample.bmp" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

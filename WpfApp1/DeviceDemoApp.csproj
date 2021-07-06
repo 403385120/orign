@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6796C023-7250-4353-BAE9-2C29B42024E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WpfApp1</RootNamespace>
+    <AssemblyName>DeviceApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\PTF UI\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\PTF UI\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATL.Common">
+      <HintPath>..\PTF UI\Release\ATL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL.UI.Controls, Version=1.0.7558.17005, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\ATL.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="DeviceLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\DeviceLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MES.Data, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\MES.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PTF UI\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AutoSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoSampleForm.Designer.cs">
+      <DependentUpon>AutoSampleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPage.xaml.cs">
+      <DependentUpon>ModelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShangxiaLiaoPage.xaml.cs">
+      <DependentUpon>ShangxiaLiaoPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DeviceInitPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DevicePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeviceRunPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DeviceSamplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeviceInitPage.xaml.cs">
+      <DependentUpon>DeviceInitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevicePage.xaml.cs">
+      <DependentUpon>DevicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceRunPage.xaml.cs">
+      <DependentUpon>DeviceRunPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceSamplePage.xaml.cs">
+      <DependentUpon>DeviceSamplePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ModelPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Dictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShangxiaLiaoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModVariable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="AutoSampleForm.resx">
+      <DependentUpon>AutoSampleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\00.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\alarm_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\battery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\btncraftdetails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_log_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\button_switch_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\datacapacity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\deviceControl_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\dialog_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\equipprobably.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\lower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\Image14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\jumpbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\login_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main-stop2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\main_ptf2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\menu_child_button_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MES.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\panel_bg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_no.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_ok1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\plc_on.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\production.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\right_panel_border.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\standby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_abnormal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\state_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\states.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_alarm2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tab_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\daytime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\device.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\good.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\MESOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\pgk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCNG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\PLCOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\time_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="chip.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

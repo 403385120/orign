@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="LoginAccount" value="Guest" />
+  <add key="ClientSettingsProvider.ServiceUri" value="" />
+  <!--相机校准文件目录配置-->
+  <add key="CameraSetting" value="C:\\CameraSetting"/>
+  <!--相机模式（High-高模式 Low-低模式）-->
+  <add key="CaptureMode" value="Low" />
+  <!--相机拍照层数-->
+  <add key="CaptureFrame" value="5" />
+  <!--日志记录:0-无日志记录 1-仅错误日志 2-错误及调试-->
+  <add key="LogLevel" value="1"></add>
+  <!--保存相机测试图片 0-不保存 1-保存-->
+  <add key="SaveTestImage" value="1"></add>
+  <!--转8位JGP图的灰度阈值-->
+  <add key="GrayLevel" value="4000"></add>
+  <!--顺时针旋转90度的次数 0-不旋转 1-旋转1次 2-旋转2次-->
+  <add key="Rotate" value="0"></add>
+  <!--相机增益-->
+  <add key="Gain" value="3"></add>
+</appSettings>

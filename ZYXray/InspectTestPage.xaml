@@ -1,0 +1,439 @@
+﻿<controls:BasePage 
+    x:Class="ZYXray.InspectTestPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:converters="clr-namespace:ZYXray.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:viewModels="clr-namespace:ZYXray.ViewModels"
+    xmlns:controls="clr-namespace:ATL.UI.Controls;assembly=ATL.UI.Controls"
+    Title="InspectTestPage">
+
+    <controls:BasePage.Resources>
+        <converters:BooleanInverseConverter x:Key="BooleanInverseConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </controls:BasePage.Resources>
+
+    <Canvas Width="1600" Height="900">
+        <Canvas Style="{StaticResource  CanvasStyle1}"/>
+
+        <Grid Canvas.Left="310" Canvas.Top="200" Width="1200"
+              Grid.Row="3"
+              Grid.RowSpan="1"
+              Grid.Column="1"
+              Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".01*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height=".01*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width=".01*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".01*" />
+                <ColumnDefinition Width=".5*" />
+                <ColumnDefinition Width=".01*" />
+                <ColumnDefinition Width=".5*" />
+                <ColumnDefinition Width=".1*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="7"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_InspectTestTips}" />
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_AutoInspectImg}"
+                ContentStringFormat="{}{0} :" />
+
+            <Controls:ToggleSwitch
+                Grid.Row="2"
+                Grid.Column="3"
+                Margin="5,2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Foreground="WhiteSmoke"
+                IsChecked="{Binding AutoMode}"
+                OffLabel="{DynamicResource LL_No}"
+                OnLabel="{DynamicResource LL_Yes}" />
+
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_AutoInspectPath}"
+                ContentStringFormat="{}{0} :"
+                IsEnabled="{Binding AutoMode}" />
+            <Label
+                Grid.Row="3"
+                Grid.Column="5"
+                Margin="6,0,175,4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Bottom"
+                Content="{DynamicResource LL_AutoInspectPathTips}"
+                FontSize="10"
+                IsEnabled="{Binding AutoMode}" Grid.ColumnSpan="3" />
+            <Grid
+                Grid.Row="3"
+                Grid.Column="3"
+                IsEnabled="{Binding AutoMode}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Text="{Binding AutoPath}" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderThickness=".5"
+                    Command="{Binding SelectFolder}"
+                    Style="{DynamicResource SquareButtonStyle}">
+                    <Rectangle
+                        Width="15"
+                        Height="15"
+                        Margin="1,1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Fill="Black">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_folder_open}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+
+            <Label
+                Grid.Row="4"
+                Grid.Column="3"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_ImgPath}" />
+            <Label
+                Grid.Row="4"
+                Grid.Column="5"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_AlgoTime}" />
+            <Label
+                Grid.Row="4"
+                Grid.Column="7"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_AlgoRet}" />
+
+            <Label
+                Grid.Row="5"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_LeftUpImg}"
+                ContentStringFormat="{}{0} :" />
+            <Grid
+                Grid.Row="5"
+                Grid.Column="3"
+                IsEnabled="{Binding AutoMode, Converter={StaticResource BooleanInverseConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Text="{Binding LeftUpImg}" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderThickness=".5"
+                    Command="{Binding SelectFile}"
+                    CommandParameter="1"
+                    Style="{DynamicResource SquareButtonStyle}">
+                    <Rectangle
+                        Width="15"
+                        Height="15"
+                        Margin="1,1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Fill="Black">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_folder_open}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+            <Controls:NumericUpDown
+                Grid.Row="5"
+                Grid.Column="5"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                StringFormat="{}{0:N1} ms"
+                Value="{Binding LeftUpTime}" />
+            <Controls:NumericUpDown
+                Grid.Row="5"
+                Grid.Column="7"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Value="{Binding LeftUpRet}" />
+
+            <Label
+                Grid.Row="6"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_LeftDownImg}"
+                ContentStringFormat="{}{0} :" />
+            <Grid
+                Grid.Row="6"
+                Grid.Column="3"
+                IsEnabled="{Binding AutoMode, Converter={StaticResource BooleanInverseConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Text="{Binding LeftDownImg}" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderThickness=".5"
+                    Command="{Binding SelectFile}"
+                    CommandParameter="2"
+                    Style="{DynamicResource SquareButtonStyle}">
+                    <Rectangle
+                        Width="15"
+                        Height="15"
+                        Margin="1,1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Fill="Black">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_folder_open}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+            <Controls:NumericUpDown
+                Grid.Row="6"
+                Grid.Column="5"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                StringFormat="{}{0:N1} ms"
+                Value="{Binding LeftDownTime}" />
+            <Controls:NumericUpDown
+                Grid.Row="6"
+                Grid.Column="7"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Value="{Binding LeftDownRet}" />
+
+            <Label
+                Grid.Row="8"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_RightUpImg}"
+                ContentStringFormat="{}{0} :" />
+            <Grid
+                Grid.Row="8"
+                Grid.Column="3"
+                IsEnabled="{Binding AutoMode, Converter={StaticResource BooleanInverseConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Text="{Binding RightUpImg}" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderThickness=".5"
+                    Command="{Binding SelectFile}"
+                    CommandParameter="4"
+                    Style="{DynamicResource SquareButtonStyle}">
+                    <Rectangle
+                        Width="15"
+                        Height="15"
+                        Margin="1,1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Fill="Black">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_folder_open}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+            <Controls:NumericUpDown
+                Grid.Row="8"
+                Grid.Column="5"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                StringFormat="{}{0:N1} ms"
+                Value="{Binding RightUpTime}" />
+            <Controls:NumericUpDown
+                Grid.Row="8"
+                Grid.Column="7"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Value="{Binding RightUpRet}" />
+
+            <Label
+                Grid.Row="7"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="{DynamicResource LL_RightDownImg}"
+                ContentStringFormat="{}{0} :" />
+            <Grid
+                Grid.Row="7"
+                Grid.Column="3"
+                IsEnabled="{Binding AutoMode, Converter={StaticResource BooleanInverseConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    IsReadOnly="True"
+                    Text="{Binding RightDownImg}" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    BorderThickness=".5"
+                    Command="{Binding SelectFile}"
+                    CommandParameter="3"
+                    Style="{DynamicResource SquareButtonStyle}">
+                    <Rectangle
+                        Width="15"
+                        Height="15"
+                        Margin="1,1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Fill="Black">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_folder_open}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Button>
+            </Grid>
+            <Controls:NumericUpDown
+                Grid.Row="7"
+                Grid.Column="5"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                StringFormat="{}{0:N1} ms"
+                Value="{Binding RightDownTime}" />
+            <Controls:NumericUpDown
+                Grid.Row="7"
+                Grid.Column="7"
+                VerticalAlignment="Center"
+                IsEnabled="False"
+                Value="{Binding RightDownRet}" />
+
+            <Button
+                Grid.Row="9"
+                Grid.Column="7"
+                MinWidth="100"
+                MaxWidth="156"
+                Margin="10,5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Controls:ButtonHelper.PreserveTextCase="True"
+                BorderThickness="0"
+                Command="{Binding DoTest}"
+                Content="{DynamicResource LL_Test}"
+                Style="{DynamicResource AccentedSquareButtonStyle}">
+            </Button>
+        </Grid>
+
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="算法测试" VerticalAlignment="Center" />
+        </Canvas>
+    </Canvas>
+</controls:BasePage>
