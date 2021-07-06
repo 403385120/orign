@@ -36,6 +36,7 @@ namespace ZYXray.Winform
         }
 
         DictionaryRefDAL dictionaryRefDAL = new DictionaryRefDAL();
+
         CommunicationDAL commfDAL = new CommunicationDAL();
         private void frmCommunication_Load(object sender, EventArgs e)
         {
