@@ -19,6 +19,7 @@ namespace ZYXray.Winform
             type = _type;
         }
         public static FrmLogin Current;
+
         public int blLogin = 0;
         private void btnSave_Click(object sender, EventArgs e)
         {
